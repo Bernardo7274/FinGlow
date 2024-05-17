@@ -1,0 +1,143 @@
+flutter_native_splash:
+  # Este paquete genera código nativo para personalizar la pantalla de inicio nativa blanca predeterminada de Flutter
+  # con color de fondo e imagen de splash.
+  # Personaliza los parámetros a continuación y ejecuta el siguiente comando en la terminal:
+  # dart run flutter_native_splash:create
+  # Para restaurar la pantalla de inicio blanca predeterminada de Flutter, ejecuta el siguiente comando en la terminal:
+  # dart run flutter_native_splash:remove
+
+  # NOTA IMPORTANTE: Estos parámetros no afectan la configuración de Android 12 y posteriores, que
+  # manejan las pantallas de inicio de manera diferente que las versiones anteriores de Android. Android 12 y posteriores deben ser
+  # configurados específicamente en la sección android_12 a continuación.
+
+  # color o background_image es el único parámetro requerido. Usa color para establecer el fondo
+  # de tu pantalla de inicio como un color sólido. Usa background_image para establecer el fondo de tu
+  # pantalla de inicio a una imagen png. Esto es útil para gradientes. La imagen se estirará al
+  # tamaño de la aplicación. Solo se puede usar un parámetro, no se puede establecer color y background_image al mismo tiempo.
+  # color: "#011330"
+  background_image: "assets/images/fondo.jpg"
+
+  # Los parámetros opcionales se enumeran a continuación. Para habilitar un parámetro, descomenta la línea eliminando
+  # el carácter # al principio.
+
+  # El parámetro image te permite especificar una imagen utilizada en la pantalla de inicio. Debe ser un
+  # archivo png y debe tener un tamaño para una densidad de píxeles 4x.
+  image: assets/images/logo_vertical.png
+
+  # La propiedad branding te permite especificar una imagen utilizada como marca en la pantalla de inicio.
+  # Debe ser un archivo png. Es compatible con Android, iOS y la Web. Para Android 12,
+  # consulta la sección Android 12 a continuación.
+  #branding: assets/dart.png
+
+  # Para posicionar la imagen de la marca en la parte inferior de la pantalla, puedes usar bottom, bottomRight,
+  # y bottomLeft. El valor predeterminado es bottom si no se especifica o se especifica algo diferente.
+  #branding_mode: bottom
+
+  # Los parámetros color_dark, background_image_dark, image_dark, branding_dark son parámetros que establecen el fondo
+  # e imagen cuando el dispositivo está en modo oscuro. Si no se especifican, la aplicación utilizará los
+  # parámetros de arriba. Si se especifica el parámetro image_dark, color_dark o
+  # background_image_dark debe ser especificado. color_dark y background_image_dark no pueden ambos ser
+  # establecidos.
+  #color_dark: "#042a49"
+  #background_image_dark: "assets/dark-background.png"
+  #image_dark: assets/splash-invert.png
+  #branding_dark: assets/dart_dark.png
+
+  # A partir de Android 12, la pantalla de inicio se maneja de manera diferente que en versiones anteriores.
+  # Visita https://developer.android.com/guide/topics/ui/splash-screen
+  # A continuación se muestran parámetros específicos para Android 12+.
+  android_12:
+    # El parámetro image establece la imagen del ícono de la pantalla de inicio. Si este parámetro no se especifica,
+    # se usará el ícono del lanzador de la aplicación en su lugar.
+    # Ten en cuenta que la pantalla de inicio se recortará a un círculo en el centro de la pantalla.
+    # Ícono de la aplicación con un fondo de ícono: debe ser de 960×960 píxeles y ajustarse dentro de un círculo
+    # de 640 píxeles de diámetro.
+    # Ícono de la aplicación sin un fondo de ícono: debe ser de 1152×1152 píxeles y ajustarse dentro de un círculo
+    # de 768 píxeles de diámetro.
+    image: assets/images/logo_vertical.png
+
+    # Color de fondo de la pantalla de inicio.
+    #color: "#42a5f5"
+
+    # Color de fondo del ícono de la aplicación.
+    #icon_background_color: "#111111"
+
+    # La propiedad branding te permite especificar una imagen utilizada como marca en la pantalla de inicio.
+    #branding: assets/dart.png
+
+    # Los parámetros image_dark, color_dark, icon_background_color_dark y branding_dark establecen valores que
+    # se aplican cuando el dispositivo está en modo oscuro. Si no se especifican, la aplicación utilizará los
+    # parámetros de arriba.
+    #image_dark: assets/android12splash-invert.png
+    #color_dark: "#042a49"
+    #icon_background_color_dark: "#eeeeee"
+
+  # Los parámetros android, ios y web se pueden usar para deshabilitar la generación de una pantalla de inicio en una plataforma dada.
+  #android: false
+  #ios: false
+  #web: false
+
+  # Las imágenes específicas de la plataforma se pueden especificar con los siguientes parámetros, que anularán
+  # el parámetro respectivo. Puedes especificar todos, algunos o ninguno de estos parámetros:
+  #color_android: "#42a5f5"
+  #color_dark_android: "#042a49"
+  #color_ios: "#42a5f5"
+  #color_dark_ios: "#042a49"
+  #color_web: "#42a5f5"
+  #color_dark_web: "#042a49"
+  #image_android: assets/splash-android.png
+  #image_dark_android: assets/splash-invert-android.png
+  #image_ios: assets/splash-ios.png
+  #image_dark_ios: assets/splash-invert-ios.png
+  #image_web: assets/splash-web.gif
+  #image_dark_web: assets/splash-invert-web.gif
+  #background_image_android: "assets/background-android.png"
+  #background_image_dark_android: "assets/dark-background-android.png"
+  #background_image_ios: "assets/background-ios.png"
+  #background_image_dark_ios: "assets/dark-background-ios.png"
+  #background_image_web: "assets/background-web.png"
+  #background_image_dark_web: "assets/dark-background-web.png"
+  #branding_android: assets/brand-android.png
+  #branding_dark_android: assets/dart_dark-android.png
+  #branding_ios: assets/brand-ios.png
+  #branding_dark_ios: assets/dart_dark-ios.png
+  #branding_web: assets/brand-web.gif
+  #branding_dark_web: assets/dart_dark-web.gif
+
+  # La posición de la imagen de splash se puede establecer con los parámetros android_gravity, ios_content_mode y
+  # web_image_mode. Todos tienen el valor predeterminado center.
+  #
+  # android_gravity puede ser uno de los siguientes Gravitación de Android (consultar
+  # https://developer.android.com/reference/android/view/Gravity): bottom, center,
+  # center_horizontal, center_vertical, clip_horizontal, clip_vertical, end, fill, fill_horizontal,
+  # fill_vertical, left, right, start o top.
+  #android_gravity: center
+  #
+  # ios_content_mode puede ser uno de los siguientes Modo de contenido UIView de iOS (consultar
+  # https://developer.apple.com/documentation/uikit/uiview/contentmode): scaleToFill,
+  # scaleAspectFit, scaleAspectFill, center, top, bottom, left, right, topLeft, topRight,
+  # bottomLeft o bottomRight.
+  #ios_content_mode: center
+  #
+  # web_image_mode puede ser uno de los siguientes modos: center, contain, stretch y cover.
+  #web_image_mode: center
+
+  # La orientación de la pantalla se puede establecer en Android con el parámetro android_screen_orientation.
+  # Los parámetros válidos se pueden encontrar aquí:
+  # https://developer.android.com/guide/topics/manifest/activity-element#screen
+  #android_screen_orientation: sensorLandscape
+
+  # Para ocultar la barra de notificaciones, usa el parámetro fullscreen. No tiene efecto en la web ya que la web
+  # no tiene barra de notificaciones. El valor predeterminado es false.
+  # NOTA: A diferencia de Android, iOS no mostrará automáticamente la barra de notificaciones cuando se carga la aplicación.
+  #       Para mostrar la barra de notificaciones, agrega el siguiente código a tu aplicación Flutter:
+  #       WidgetsFlutterBinding.ensureInitialized();
+  #       SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top], );
+  fullscreen: true
+
+  # Si has cambiado el nombre de tu(s) archivo(s) info.plist, puedes especificar el(s) nombre(s) de archivo
+  # con el parámetro info_plist_files. Elimina solo los caracteres # en las tres líneas siguientes,
+  # no elimines ningún espacio:
+  #info_plist_files:
+  #  - 'ios/Runner/Info-Debug.plist'
+  #  - 'ios/Runner/Info-Release.plist'
