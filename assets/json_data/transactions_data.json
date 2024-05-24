@@ -1,0 +1,19 @@
+{
+    "id_transaccion": "TXN123456",
+    "fecha": "2024-05-21",
+    "hora": "14:30:00",
+    "monto": 2500.75,
+    "moneda": "USD",
+    "origen": {
+      "cuenta_numero": "1234567890",
+      "banco": "Banco A",
+      "titular": "Juan Pérez"
+    },
+    "destino": {
+      "cuenta_numero": "0987654321",
+      "banco": "Banco B",
+      "titular": "María García"
+    },
+    "descripcion": "Pago de servicios",
+    "estado": "completada"
+}
