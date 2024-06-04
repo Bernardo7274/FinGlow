@@ -6,7 +6,7 @@ part 'financial_dashboard_model.g.dart';
 class DashboardModel{
   String reportscategory;
   double incomeamount;
-  double amountexpenses;
+  double amountexpenses; 
 
   DashboardModel({
   required this.reportscategory,
