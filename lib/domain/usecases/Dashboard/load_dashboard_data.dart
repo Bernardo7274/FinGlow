@@ -12,15 +12,17 @@ class LoadDashboardData {
     final dashboardData = await repository.loadFormData();
 
     //Validaciones
-    if (dashboardData.reportscategory.isEmpty && dashboardData.reportscategory == String){
-      throw Exception('No hay datos para mostrar');
+    if (!_isValidEventType(dashboardData.reportscategory)) {
+      throw Exception('El tipo de reporte no es válido.');
     }
-    if (dashboardData.incomeamount == null && dashboardData.incomeamount == double && dashboardData.incomeamount <= 0){
-      throw Exception('No hay datos para mostrar');
-    }
-    if (dashboardData.amountexpenses == null && dashboardData.amountexpenses == double && dashboardData.amountexpenses <= 0){
-      throw Exception('No hay datos para mostrar');
-    }
+
     return dashboardData;
   }
+
+  bool _isValidEventType(String eventtype) {
+    // Aquí defines los tipos de eventos válidos
+    const validReportTypes = ['Semanal', 'Mensual','Anual'];
+    return validReportTypes.contains(eventtype);
+  }
+
 }
