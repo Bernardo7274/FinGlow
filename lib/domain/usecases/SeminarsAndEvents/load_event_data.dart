@@ -44,13 +44,13 @@ class LoadEventData {
   }
 
   bool _isValidEventType(String eventtype) {
-    // Aquí defines los tipos de eventos válidos
+    // Aquí se definen los tipos de eventos válidos
     const validEventTypes = ['Seminario', 'Evento'];
     return validEventTypes.contains(eventtype);
   }
 
   bool _isValidCategoryName(String categoryname) {
-    // Aquí defines las categorías válidas
+    // Aquí se definen las categorías válidas
     const validCategories = [
       'Innovación y tecnología',
       'Desarrollo de negocios',
