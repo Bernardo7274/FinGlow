@@ -1,3 +1,4 @@
+import 'package:FinGlow/presentation/views/register_user.dart';
 import 'package:flutter/material.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:FinGlow/presentation/widgets/CustomLoginWidget.dart';
@@ -122,7 +123,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   TextButton(
                     onPressed: () {
-                      // Implementar la funcionalidad aquí
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => const UserRegister(),));
                     },
                     child: const Text(
                       'Abrir cuenta',
