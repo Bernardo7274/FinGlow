@@ -8,7 +8,7 @@ abstract class TransferenciaEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class LoadTransferencias extends TransferenciaEvent {}
+class LoadTransferencia extends TransferenciaEvent {}
 
 class TransferenciaIdChanged extends TransferenciaEvent {
   final String id_transaccion;

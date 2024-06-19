@@ -1,8 +1,14 @@
+import 'package:FinGlow/data/repositories/Transactions/transactions_repository_impl.dart';
+import 'package:FinGlow/domain/usecases/Transactions/load_transactions_data.dart';
+import 'package:FinGlow/presentation/bloc/Transaction/transaction_bloc.dart';
+import 'package:FinGlow/presentation/bloc/Transaction/transaction_state.dart';
+import 'package:FinGlow/presentation/bloc/transaction/transaction_event.dart';
 import 'package:FinGlow/presentation/views/mount_transfer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart'; // Asegúrate de importar flutter_bloc si usas BlocProvider y BlocBuilder
 
 class TransferAccountFG extends StatefulWidget {
-  const TransferAccountFG({Key? key});
+  const TransferAccountFG({Key? key}) : super(key: key);
 
   @override
   State<TransferAccountFG> createState() => _TransferAccountFGState();
@@ -21,8 +27,7 @@ class _TransferAccountFGState extends State<TransferAccountFG> {
 
   @override
   Widget build(BuildContext context) {
-    List<Map<String, dynamic>> recentContactsToShow =
-        recentContacts.take(2).toList();
+    List<Map<String, dynamic>> recentContactsToShow = recentContacts.take(2).toList();
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -135,7 +140,7 @@ class _TransferAccountFGState extends State<TransferAccountFG> {
                   ),
                 ),
               ),
-              SizedBox(height: 8), // Añadir un pequeño espacio entre 'Tus contactos' y la lista de contactos
+              SizedBox(height: 8),
               ListView(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
