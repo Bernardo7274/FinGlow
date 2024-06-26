@@ -1,11 +1,6 @@
-import 'package:FinGlow/data/repositories/Transactions/transactions_repository_impl.dart';
-import 'package:FinGlow/domain/usecases/Transactions/load_transactions_data.dart';
-import 'package:FinGlow/presentation/bloc/Transaction/transaction_bloc.dart';
-import 'package:FinGlow/presentation/bloc/Transaction/transaction_state.dart';
-import 'package:FinGlow/presentation/bloc/transaction/transaction_event.dart';
 import 'package:FinGlow/presentation/views/mount_transfer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart'; // Asegúrate de importar flutter_bloc si usas BlocProvider y BlocBuilder
+// Asegúrate de importar flutter_bloc si usas BlocProvider y BlocBuilder
 
 class TransferAccountFG extends StatefulWidget {
   const TransferAccountFG({Key? key}) : super(key: key);

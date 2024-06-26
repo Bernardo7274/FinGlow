@@ -169,7 +169,7 @@ class _MountTransferViewState extends State<MountTransferView> {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            primary: Color(0xFF0A5959),
+                            backgroundColor: Color(0xFF0A5959),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8.0),
                             ),

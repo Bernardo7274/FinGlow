@@ -17,8 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: false,
         textTheme: const TextTheme(
-          // ignore: deprecated_member_use
-          bodyText2: TextStyle(
+          bodyLarge: TextStyle(
             fontFamily: 'Arial',
             fontSize: 14,
             fontWeight: FontWeight.bold,
