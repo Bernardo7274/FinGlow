@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 class TransactionRepositoryImpl implements TransactionRepository {
   @override
   Future<TransferenciaBancariaModel> LoadTransaction() async{
-    final response = await rootBundle.loadString('assets/json_data/transactions_data.json');
+    final response = await rootBundle.loadString('json_data/transactions_data.json');
     final data = json.decode(response);
     print(data);
     return TransferenciaBancariaModel.fromJson(data);

@@ -1,11 +1,17 @@
-import 'package:FinGlow/presentation/widgets/CardCarouselWidget.dart';
+import 'package:FinGlow/data/repositories/Home/home_repository_impl.dart';
+import 'package:FinGlow/domain/usecases/Home/home_usercase.dart';
+import 'package:FinGlow/presentation/bloc/Home/home_bloc.dart';
+import 'package:FinGlow/presentation/bloc/Home/home_event.dart';
+import 'package:FinGlow/presentation/bloc/Home/home_state.dart';
 import 'package:flutter/material.dart';
+import 'package:FinGlow/presentation/widgets/CardCarouselWidget.dart';
 import 'package:FinGlow/presentation/views/basic_card.dart';
 import 'package:FinGlow/presentation/views/deposit_money.dart';
 import 'package:FinGlow/presentation/views/gold_card.dart';
 import 'package:FinGlow/presentation/views/interbank_clabe.dart';
 import 'package:FinGlow/presentation/views/transfer_money.dart';
 import 'package:FinGlow/presentation/widgets/LastMovementsWidget.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -100,112 +106,121 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: DecoratedBox(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color.fromRGBO(1, 19, 48, 1),
-              Color.fromRGBO(4, 38, 92, 1),
-            ],
-            stops: [
-              0.3,
-              0.7,
-            ],
+    return BlocProvider(
+      create: (context) => HomeBloc(
+        LoadEventData(HomeRepositoryImpl()),
+      )..add(LoadHomeDataEvent()),
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: DecoratedBox(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color.fromRGBO(1, 19, 48, 1),
+                Color.fromRGBO(4, 38, 92, 1),
+              ],
+              stops: [
+                0.3,
+                0.7,
+              ],
+            ),
           ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: ListView(
-            children: <Widget>[
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: const Row(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: BlocBuilder<HomeBloc, HomeState>(
+              builder: (context, state) {
+                return ListView(
                   children: <Widget>[
-                    CircleAvatar(
-                      backgroundImage: AssetImage('assets/images/User.png'),
-                    ),
-                    SizedBox(width: 10),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                    Container(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: Row(
                         children: <Widget>[
-                          Text(
-                            '¡Bienvenido de nuevo!',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: 14,
-                            ),
+                          const CircleAvatar(
+                            backgroundImage: AssetImage('assets/images/User.png'),
                           ),
-                          SizedBox(height: 10),
-                          Text(
-                            'María López Urbina',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              color: Colors.white,
-                              fontSize: 10,
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                const Text(
+                                  '¡Bienvenido de nuevo!',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                Text(
+                                  state.username,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.white,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
+                         ),
                         ],
                       ),
                     ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 20),
-              const Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  Text(
-                    'Monto disponible',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
+                    const SizedBox(height: 20),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: <Widget>[
+                        const Text(
+                          'Monto disponible',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                          ),
+                        ),
+                        const SizedBox(width: 30),
+                        Expanded(
+                          child: Text(
+                            state.movementamount,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  SizedBox(width: 30),
-                  Expanded(
-                    child: Text(
-                      '\$38,639.00',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
+                    const SizedBox(height: 16),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: LinearProgressIndicator(
+                        backgroundColor: Colors.blueAccent.withOpacity(0.2),
+                        valueColor: const AlwaysStoppedAnimation<Color>(Colors.lightBlueAccent),
+                        value: progressValue,
+                        minHeight: 20,
                       ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: LinearProgressIndicator(
-                  backgroundColor: Colors.blueAccent.withOpacity(0.2),
-                  valueColor: const AlwaysStoppedAnimation<Color>(Colors.lightBlueAccent),
-                  value: progressValue,
-                  minHeight: 20,
-                ),
-              ),
-              const SizedBox(height: 16),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: _buttonsInfo.map((buttonInfo) => _buildImageButton(buttonInfo)).toList(),
-                ),
-              ),
-              CardCarouselWidget(onCardTapped: handleCardTap),
-              Container(
-                child: _currentView,
-              ),
-              const SizedBox(height: 16),
-              LastMovementsWidget(),
-              // Otros Widgets aquí...
-            ],
+                    const SizedBox(height: 16),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: _buttonsInfo.map((buttonInfo) => _buildImageButton(buttonInfo)).toList(),
+                      ),
+                    ),
+                    CardCarouselWidget(onCardTapped: handleCardTap),
+                    Container(
+                      child: _currentView,
+                    ),
+                    const SizedBox(height: 16),
+                    LastMovementsWidget(),
+                    // Otros Widgets aquí...
+                  ],
+                );
+              },
+            ),
           ),
         ),
       ),

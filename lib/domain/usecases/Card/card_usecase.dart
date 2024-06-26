@@ -29,7 +29,7 @@ class LoadEventData {
       throw Exception('La fecha de vencimiento de la tarjeta debe ser futura.');
     }
 
-    if (eventdata.movementdate.isAfter(DateTime.now())) {
+    if (eventdata.movementdate.isEmpty) {
       throw Exception('La fecha del movimiento no puede ser futura.');
     }
     return eventdata;

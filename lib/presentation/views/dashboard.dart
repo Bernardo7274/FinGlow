@@ -62,10 +62,11 @@ class _DashboardViewState extends State<DashboardView> {
               builder: (context, state) {
                 return Column(
                   children: <Widget>[
+                    const SizedBox(height: 40), // Añadir espacio desde la parte superior
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.8,
+                        width: double.infinity,
                         child: Container(
                           margin: const EdgeInsets.symmetric(vertical: 20.0),
                           padding: const EdgeInsets.all(8.0),
@@ -74,13 +75,10 @@ class _DashboardViewState extends State<DashboardView> {
                             borderRadius: BorderRadius.circular(30.0),
                           ),
                           child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[
                               menuButton(state.reportscategory, 0),
-                              menuDivider(),
                               menuButton(state.reportscategory, 1),
-                              menuDivider(),
                               menuButton(state.reportscategory, 2),
                             ],
                           ),
@@ -88,8 +86,10 @@ class _DashboardViewState extends State<DashboardView> {
                       ),
                     ),
                     Expanded(
-                      child: Center(
-                        child: _getContentForIndex(selectedIndex),
+                      child: SingleChildScrollView(
+                        child: Center(
+                          child: _getContentForIndex(selectedIndex),
+                        ),
                       ),
                     ),
                   ],
@@ -103,38 +103,33 @@ class _DashboardViewState extends State<DashboardView> {
   }
 
   Widget menuButton(String title, int index) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          selectedIndex = index;
-        });
-      },
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 18.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20.0),
-          color: selectedIndex == index
-              ? const Color.fromRGBO(45, 166, 144, 1)
-              : Colors.transparent,
-        ),
-        child: Text(
-          title,
-          style: TextStyle(
-            fontSize: 12,
-            color: selectedIndex == index ? Colors.white : Colors.white70,
-            fontWeight: FontWeight.bold,
+    return Expanded(
+      child: GestureDetector(
+        onTap: () {
+          setState(() {
+            selectedIndex = index;
+          });
+        },
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 18.0),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20.0),
+            color: selectedIndex == index
+                ? const Color.fromRGBO(45, 166, 144, 1)
+                : Colors.transparent,
+          ),
+          child: Center(
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: 12,
+                color: selectedIndex == index ? Colors.white : Colors.white70,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
         ),
       ),
-    );
-  }
-
-  Widget menuDivider() {
-    return Container(
-      color: const Color.fromRGBO(4, 38, 92, 1),
-      width: 2,
-      height: 30,
-      margin: const EdgeInsets.symmetric(horizontal: 3),
     );
   }
 

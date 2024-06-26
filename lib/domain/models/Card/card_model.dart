@@ -9,7 +9,7 @@ class CardModel{
   int cvv;
   String movementtype;
   double movementamount;
-  DateTime movementdate;
+  String movementdate;
 
   CardModel({
   required this.cardnumber,

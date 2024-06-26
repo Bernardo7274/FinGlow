@@ -10,7 +10,7 @@ HomeModel _$HomeModelFromJson(Map<String, dynamic> json) => HomeModel(
       username: json['username'] as String,
       amountavailable: (json['amountavailable'] as num).toDouble(),
       movementtype: json['movementtype'] as String,
-      movementamount: (json['movementamount'] as num).toDouble(),
+      movementamount: json['movementamount'] as String,
       movementdate: DateTime.parse(json['movementdate'] as String),
       profilepicture: json['profilepicture'] as String,
     );

@@ -12,7 +12,7 @@ CardModel _$CardModelFromJson(Map<String, dynamic> json) => CardModel(
       cvv: (json['cvv'] as num).toInt(),
       movementtype: json['movementtype'] as String,
       movementamount: (json['movementamount'] as num).toDouble(),
-      movementdate: DateTime.parse(json['movementdate'] as String),
+      movementdate: json['movementdate'] as String,
     );
 
 Map<String, dynamic> _$CardModelToJson(CardModel instance) => <String, dynamic>{
@@ -21,5 +21,5 @@ Map<String, dynamic> _$CardModelToJson(CardModel instance) => <String, dynamic>{
       'cvv': instance.cvv,
       'movementtype': instance.movementtype,
       'movementamount': instance.movementamount,
-      'movementdate': instance.movementdate.toIso8601String(),
+      'movementdate': instance.movementdate,
     };

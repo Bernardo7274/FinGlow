@@ -30,7 +30,7 @@ class FinancialBloc extends Bloc<FinancialEvent, FinancialState> {
 
   bool _validateForm() {
     return state.reportscategory.isNotEmpty &&
-        state.incomeamount >= 0 &&
-        state.amountexpenses >= 0;
+        double.tryParse(state.incomeamount) != null &&
+        double.tryParse(state.amountexpenses) != null;
   }
 }

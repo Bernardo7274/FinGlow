@@ -1,32 +1,35 @@
+import 'package:equatable/equatable.dart';
 import 'package:FinGlow/domain/models/ChatSupport/chat_support_model.dart';
 
-// Definir los posibles estados del bloc
-enum ChatSupportBlocStatus { initial, loading, loaded, error }
-
-// Definir el estado del bloc
-class ChatSupportState {
-  final ChatSupportModel? chatSupportData;
-  final ChatSupportBlocStatus status;
+class ChatSupportState extends Equatable {
+  final String phonenumber;
+  final bool isValid;
 
   const ChatSupportState({
-    this.chatSupportData,
-    required this.status,
+    this.phonenumber = '',
+    this.isValid = false,
   });
 
-  // Estados iniciales predefinidos
-  factory ChatSupportState.initial() {
-    return const ChatSupportState(status: ChatSupportBlocStatus.initial);
+  factory ChatSupportState.fromModel(ChatSupportModel model) {
+    return ChatSupportState(
+      phonenumber: model.phonenumber,
+      isValid: true,
+    );
   }
 
-  factory ChatSupportState.loading() {
-    return const ChatSupportState(status: ChatSupportBlocStatus.loading);
+  ChatSupportState copyWith({
+    String? phonenumber,
+    bool? isValid,
+  }) {
+    return ChatSupportState(
+      phonenumber: phonenumber ?? this.phonenumber,
+      isValid: isValid ?? this.isValid,
+    );
   }
 
-  factory ChatSupportState.loaded(ChatSupportModel chatSupportData) {
-    return ChatSupportState(status: ChatSupportBlocStatus.loaded, chatSupportData: chatSupportData);
-  }
-
-  factory ChatSupportState.error() {
-    return const ChatSupportState(status: ChatSupportBlocStatus.error);
-  }
+  @override
+  List<Object?> get props => [
+        phonenumber,
+        isValid,
+      ];
 }

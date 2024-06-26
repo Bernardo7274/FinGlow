@@ -5,8 +5,8 @@ part 'financial_dashboard_model.g.dart';
 @JsonSerializable()
 class DashboardModel{
   String reportscategory;
-  double incomeamount;
-  double amountexpenses; 
+  String incomeamount;
+  String amountexpenses; 
 
   DashboardModel({
   required this.reportscategory,

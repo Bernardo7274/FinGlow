@@ -130,6 +130,8 @@ flutter:
     - assets/images/servicio4.png
     - assets/images/servicio5.png
     - assets/images/servicio6.png
+    - assets/images/Chat_sup.png
+    - assets/images/Chat_sup2.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

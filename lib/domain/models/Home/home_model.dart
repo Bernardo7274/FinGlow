@@ -7,7 +7,7 @@ class HomeModel{
   String username;
   double amountavailable;
   String movementtype;
-  double movementamount;
+  String movementamount;
   DateTime movementdate;
   String profilepicture;
   

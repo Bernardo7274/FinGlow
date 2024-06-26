@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, unnecessary_string_interpolations
+
 import 'package:FinGlow/data/repositories/SeminarsAndEvents/seminarsandevents_repository_impl.dart';
 import 'package:FinGlow/domain/usecases/SeminarsAndEvents/load_event_data.dart';
 import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_bloc.dart';
@@ -153,8 +155,8 @@ class _SeminarViewState extends State<SeminarView> {
                     ),
                     const SizedBox(height: 20),
                     _buildCategoryCard(
-                      'Gestión para NO financieros',
-                      'Carlos Ruiz, Experto en finanzas',
+                      '${state.eventname}',
+                      '${state.westname}, ${state.occupation}',
                       'assets/images/User3.png',
                       _tresDialog,
                     ),

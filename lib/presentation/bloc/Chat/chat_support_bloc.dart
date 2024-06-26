@@ -1,25 +1,29 @@
-import 'package:FinGlow/domain/models/ChatSupport/chat_support_model.dart';
-import 'package:FinGlow/domain/usecases/SeminarsAndEvents/load_event_data.dart';
+import 'package:FinGlow/domain/usecases/ChatSupport/chatsupport_usercase.dart' as usecase;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'chat_support_event.dart';
 import 'chat_support_state.dart';
 
-// Implementar el bloc
 class ChatSupportBloc extends Bloc<ChatSupportEvent, ChatSupportState> {
-  final LoadEventData loadEventData;
+  final usecase.LoadEventData loadChatSupportData;
 
-  ChatSupportBloc({required this.loadEventData})
-      : super(ChatSupportState.initial());
+  ChatSupportBloc(this.loadChatSupportData) : super(const ChatSupportState()) {
+    on<LoadChatSupportDataEvent>((event, emit) async {
+      final chatSupportData = await loadChatSupportData();
+      emit(ChatSupportState.fromModel(chatSupportData));
+    });
 
-  Stream<ChatSupportState> mapEventToState(ChatSupportEvent event) async* {
-    if (event is FetchChatSupportDataEvent) {
-      yield ChatSupportState.loading();
-      try {
-        final chatSupportData = await loadEventData.call();
-        yield ChatSupportState.loaded(chatSupportData as ChatSupportModel);
-      } catch (_) {
-        yield ChatSupportState.error();
+    on<PhoneNumberChanged>((event, emit) {
+      emit(state.copyWith(phonenumber: event.phonenumber));
+    });
+
+    on<ChatSupportSubmitted>((event, emit) {
+      if (state.isValid) {
+        // Handle chat support submission logic
       }
-    }
+    });
+  }
+
+  bool _validateForm() {
+    return state.phonenumber.isNotEmpty;
   }
 }

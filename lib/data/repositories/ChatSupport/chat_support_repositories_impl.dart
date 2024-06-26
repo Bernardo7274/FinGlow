@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 class ChatSupportRepositoryImpl implements ChatSupportRepository{
   @override
   Future<ChatSupportModel> loadFormData() async{
-    final response = await rootBundle.loadString('assets/json_data/chat_support_data.json');
+    final response = await rootBundle.loadString('json_data/chat_support_data.json');
     final data = json.decode(response);
     print(data);
     return ChatSupportModel.fromJson(data);

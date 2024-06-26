@@ -1,36 +1,65 @@
 import 'package:equatable/equatable.dart';
 import 'package:FinGlow/domain/models/Home/home_model.dart';
 
-// Definir los posibles estados del bloc
-enum HomeBlocStatus { initial, loading, loaded, error }
+class HomeState extends Equatable {
+  final String username;
+  final double amountavailable;
+  final String movementtype;
+  final String movementamount;
+  final DateTime movementdate;
+  final String profilepicture;
+  final bool isValid;
 
-// Definir el estado del bloc
-class HomeBlocState extends Equatable {
-  final HomeModel? homeData;
-  final HomeBlocStatus status;
-
-  const HomeBlocState({
-    this.homeData,
-    required this.status,
+  const HomeState({
+    this.username = '',
+    this.amountavailable = 0.0,
+    this.movementtype = '',
+    this.movementamount = '',
+    required this.movementdate,
+    this.profilepicture = '',
+    this.isValid = false,
   });
 
-  // Estados iniciales predefinidos
-  factory HomeBlocState.initial() {
-    return HomeBlocState(status: HomeBlocStatus.initial);
+  factory HomeState.fromModel(HomeModel model) {
+    return HomeState(
+      username: model.username,
+      amountavailable: model.amountavailable,
+      movementtype: model.movementtype,
+      movementamount: model.movementamount,
+      movementdate: model.movementdate,
+      profilepicture: model.profilepicture,
+      isValid: true,
+    );
   }
 
-  factory HomeBlocState.loading() {
-    return HomeBlocState(status: HomeBlocStatus.loading);
-  }
-
-  factory HomeBlocState.loaded(HomeModel homeData) {
-    return HomeBlocState(status: HomeBlocStatus.loaded, homeData: homeData);
-  }
-
-  factory HomeBlocState.error() {
-    return HomeBlocState(status: HomeBlocStatus.error);
+  HomeState copyWith({
+    String? username,
+    double? amountavailable,
+    String? movementtype,
+    String? movementamount,
+    DateTime? movementdate,
+    String? profilepicture,
+    bool? isValid,
+  }) {
+    return HomeState(
+      username: username ?? this.username,
+      amountavailable: amountavailable ?? this.amountavailable,
+      movementtype: movementtype ?? this.movementtype,
+      movementamount: movementamount ?? this.movementamount,
+      movementdate: movementdate ?? this.movementdate,
+      profilepicture: profilepicture ?? this.profilepicture,
+      isValid: isValid ?? this.isValid,
+    );
   }
 
   @override
-  List<Object?> get props => [homeData, status];
+  List<Object?> get props => [
+        username,
+        amountavailable,
+        movementtype,
+        movementamount,
+        movementdate,
+        profilepicture,
+        isValid,
+      ];
 }

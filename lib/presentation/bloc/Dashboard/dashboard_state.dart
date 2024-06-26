@@ -3,14 +3,14 @@ import 'package:FinGlow/domain/models/Dashboard/financial_dashboard_model.dart';
 
 class FinancialState extends Equatable {
   final String reportscategory;
-  final double incomeamount;
-  final double amountexpenses;
+  final String incomeamount;
+  final String amountexpenses;
   final bool isValid;
 
   const FinancialState({
     this.reportscategory = '',
-    this.incomeamount = 0.0,
-    this.amountexpenses = 0.0,
+    this.incomeamount = '0.0',
+    this.amountexpenses = '0.0',
     this.isValid = false,
   });
 
@@ -25,8 +25,8 @@ class FinancialState extends Equatable {
 
   FinancialState copyWith({
     String? reportscategory,
-    double? incomeamount,
-    double? amountexpenses,
+    String? incomeamount,
+    String? amountexpenses,
     bool? isValid,
   }) {
     return FinancialState(

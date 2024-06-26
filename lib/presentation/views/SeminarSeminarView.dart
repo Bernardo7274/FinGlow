@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_string_interpolations
+
 import 'package:FinGlow/data/repositories/SeminarsAndEvents/seminarsandevents_repository_impl.dart';
 import 'package:FinGlow/domain/usecases/SeminarsAndEvents/load_event_data.dart';
 import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_bloc.dart';
@@ -137,7 +139,7 @@ class _SeminarSeminarViewState extends State<SeminarSeminarView> {
                     const SizedBox(height: 20),
                     _buildCategoryTile(
                       context,
-                      'Desarrollo de negocios',
+                      '${state.categoryname}',
                       'assets/icons/icon18.png',
                       [
                         '· Estrategias de crecimiento empresarial.',

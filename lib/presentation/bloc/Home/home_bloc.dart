@@ -1,42 +1,50 @@
+// ignore_for_file: unnecessary_null_comparison
+
+import 'package:FinGlow/domain/usecases/Home/home_usercase.dart' as usecase;
 import 'package:FinGlow/presentation/bloc/Home/home_event.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:FinGlow/domain/models/Home/home_model.dart';
-import 'package:FinGlow/domain/usecases/SeminarsAndEvents/load_event_data.dart';
+import 'package:FinGlow/presentation/bloc/Home/home_state.dart';
 
-// Definir el estado del bloc
-enum HomeBlocStatus { initial, loading, loaded, error }
+class HomeBloc extends Bloc<HomeEvent, HomeState> {
+  final usecase.LoadEventData loadHomeData;
 
-class HomeBlocState {
-  final HomeModel? homeData;
-  final HomeBlocStatus status;
+  HomeBloc(this.loadHomeData) : super(HomeState(movementdate: DateTime.now())) {
+    on<LoadHomeDataEvent>((event, emit) async {
+      final homeData = await loadHomeData();
+      emit(HomeState.fromModel(homeData));
+    });
 
-  HomeBlocState({
-    this.homeData,
-    required this.status,
-  });
-
-  HomeBlocState.initial() : this(status: HomeBlocStatus.initial);
-  HomeBlocState.loading() : this(status: HomeBlocStatus.loading);
-  HomeBlocState.loaded(HomeModel homeData)
-      : this(status: HomeBlocStatus.loaded, homeData: homeData);
-  HomeBlocState.error() : this(status: HomeBlocStatus.error);
-}
-
-// Implementar el bloc
-class HomeBloc extends Bloc<HomeBloc, HomeBlocState> {
-  final LoadEventData loadEventData;
-
-  HomeBloc({required this.loadEventData}) : super(HomeBlocState.initial());
-
-  Stream<HomeBlocState> mapEventToState(HomeBloc event) async* {
-    if (event is FetchHomeDataEvent) {
-      yield HomeBlocState.loading();
-      try {
-        final homeData = await loadEventData.call();
-        yield HomeBlocState.loaded(homeData as HomeModel);
-      } catch (e) {
-        yield HomeBlocState.error();
+    on<UsernameChanged>((event, emit) {
+      emit(state.copyWith(username: event.username));
+    });
+    on<AmountAvailableChanged>((event, emit) {
+      emit(state.copyWith(amountavailable: event.amountavailable));
+    });
+    on<MovementTypeChanged>((event, emit) {
+      emit(state.copyWith(movementtype: event.movementtype));
+    });
+    on<MovementAmountChanged>((event, emit) {
+      emit(state.copyWith(movementamount: event.movementamount));
+    });
+    on<MovementDateChanged>((event, emit) {
+      emit(state.copyWith(movementdate: event.movementdate));
+    });
+    on<ProfilePictureChanged>((event, emit) {
+      emit(state.copyWith(profilepicture: event.profilepicture));
+    });
+    on<HomeSubmitted>((event, emit) {
+      if (_validateForm()) {
+        // Handle home submission logic
       }
-    }
+    });
+  }
+
+  bool _validateForm() {
+    return state.username.isNotEmpty &&
+        state.amountavailable > 0 &&
+        state.movementtype.isNotEmpty &&
+        state.movementamount.isNotEmpty &&
+        state.movementdate != null &&
+        state.profilepicture.isNotEmpty;
   }
 }

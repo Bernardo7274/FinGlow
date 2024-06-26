@@ -19,7 +19,7 @@ class ReportsCategoryChanged extends FinancialEvent {
 }
 
 class IncomeAmountChanged extends FinancialEvent {
-  final double incomeamount;
+  final String incomeamount;
 
   const IncomeAmountChanged(this.incomeamount);
 
@@ -28,7 +28,7 @@ class IncomeAmountChanged extends FinancialEvent {
 }
 
 class AmountExpensesChanged extends FinancialEvent {
-  final double amountexpenses;
+  final String amountexpenses;
 
   const AmountExpensesChanged(this.amountexpenses);
 

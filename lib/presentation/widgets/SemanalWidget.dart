@@ -65,9 +65,9 @@ class SemanalWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    _buildAmountIndicator('Ingresos', '81919191', Colors.blue),
+                    _buildAmountIndicator('Ingresos', state.incomeamount, Colors.blue),
                     const SizedBox(width: 120),
-                    _buildAmountIndicator('Egresos', '17182933', Colors.teal),
+                    _buildAmountIndicator('Egresos', state.amountexpenses, Colors.teal),
                   ],
                 ),
                 const SizedBox(height: 20),

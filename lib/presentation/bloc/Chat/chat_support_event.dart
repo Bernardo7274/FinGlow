@@ -7,4 +7,15 @@ abstract class ChatSupportEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class FetchChatSupportDataEvent extends ChatSupportEvent {}
+class LoadChatSupportDataEvent extends ChatSupportEvent {}
+
+class PhoneNumberChanged extends ChatSupportEvent {
+  final String phonenumber;
+
+  const PhoneNumberChanged(this.phonenumber);
+
+  @override
+  List<Object?> get props => [phonenumber];
+}
+
+class ChatSupportSubmitted extends ChatSupportEvent {}
