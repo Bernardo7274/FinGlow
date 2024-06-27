@@ -7,23 +7,24 @@ class LoadEventData{
   LoadEventData(this.repository);
   Future<HomeModel> call() async {
     final eventData = await repository.loadEventData();
+    print(eventData.toString());
     if (eventData.username.isEmpty) {
-      throw Exception('El usuario no puede estar vacío.');
+     print('El usuario no puede estar vacío.');
     }
     // if (eventData.amountavailable == 0.0) {
-    //   throw Exception('El monto no puede ser nulo.');
+    //  print('El monto no puede ser nulo.');
     // }
     if (eventData.movementtype.isEmpty) {
-      throw Exception('El tipo de movimiento no puede ser nulo.');
+     print('El tipo de movimiento no puede ser nulo.');
     }
     if (eventData.movementamount == 0.0) {
-      throw Exception('El monto del movimiento no puede ser nulo.');
+     print('El monto del movimiento no puede ser nulo.');
     }
     if (eventData.movementdate.runtimeType != DateTime) {
-      throw Exception('El tipo de dato no es el correcto.');
+     print('El tipo de dato no es el correcto.');
     }
     // if (eventData.profilepicture.isEmpty) {
-    //   throw Exception('La foto de perfil, no puede estar vacía.');
+    //  print('La foto de perfil, no puede estar vacía.');
     // }
     return eventData;
   }

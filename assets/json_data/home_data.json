@@ -1,8 +1,8 @@
 {
     "username": "Maria Lopes Urbina",
-    "amountavailable": "38639", 
+    "amountavailable": 386.00, 
     "movementtype": "Movimiento Finglow",
-    "movementamount": 2450,
-    "movementdate": 1402,
+    "movementamount": "2450",
+    "movementdate": "14/02/2023",
     "profilepicture": "Foto de perfil"
 }

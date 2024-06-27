@@ -46,7 +46,7 @@ class MovementAmountChanged extends HomeEvent {
 }
 
 class MovementDateChanged extends HomeEvent {
-  final DateTime movementdate;
+  final String movementdate;
 
   const MovementDateChanged(this.movementdate);
 

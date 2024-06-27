@@ -8,7 +8,7 @@ import 'package:FinGlow/presentation/bloc/Home/home_state.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final usecase.LoadEventData loadHomeData;
 
-  HomeBloc(this.loadHomeData) : super(HomeState(movementdate: DateTime.now())) {
+  HomeBloc(this.loadHomeData) : super(HomeState(movementdate: "")) {
     on<LoadHomeDataEvent>((event, emit) async {
       final homeData = await loadHomeData();
       emit(HomeState.fromModel(homeData));

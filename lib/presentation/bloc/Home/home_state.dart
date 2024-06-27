@@ -6,7 +6,7 @@ class HomeState extends Equatable {
   final double amountavailable;
   final String movementtype;
   final String movementamount;
-  final DateTime movementdate;
+  final String movementdate;
   final String profilepicture;
   final bool isValid;
 
@@ -37,7 +37,7 @@ class HomeState extends Equatable {
     double? amountavailable,
     String? movementtype,
     String? movementamount,
-    DateTime? movementdate,
+    String? movementdate,
     String? profilepicture,
     bool? isValid,
   }) {

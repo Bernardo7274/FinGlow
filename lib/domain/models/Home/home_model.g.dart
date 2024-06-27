@@ -11,7 +11,7 @@ HomeModel _$HomeModelFromJson(Map<String, dynamic> json) => HomeModel(
       amountavailable: (json['amountavailable'] as num).toDouble(),
       movementtype: json['movementtype'] as String,
       movementamount: json['movementamount'] as String,
-      movementdate: DateTime.parse(json['movementdate'] as String),
+      movementdate: json['movementdate'] as String,
       profilepicture: json['profilepicture'] as String,
     );
 
@@ -20,6 +20,6 @@ Map<String, dynamic> _$HomeModelToJson(HomeModel instance) => <String, dynamic>{
       'amountavailable': instance.amountavailable,
       'movementtype': instance.movementtype,
       'movementamount': instance.movementamount,
-      'movementdate': instance.movementdate.toIso8601String(),
+      'movementdate': instance.movementdate,
       'profilepicture': instance.profilepicture,
     };
