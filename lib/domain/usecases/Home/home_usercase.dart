@@ -20,7 +20,7 @@ class LoadEventData{
     if (eventData.movementamount == 0.0) {
      print('El monto del movimiento no puede ser nulo.');
     }
-    if (eventData.movementdate.runtimeType != DateTime) {
+    if (eventData.movementdate == "") {
      print('El tipo de dato no es el correcto.');
     }
     // if (eventData.profilepicture.isEmpty) {

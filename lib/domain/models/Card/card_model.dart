@@ -5,7 +5,7 @@ part 'card_model.g.dart';
 @JsonSerializable()
 class CardModel{
   int cardnumber;
-  DateTime duedate;
+  String duedate;
   int cvv;
   String movementtype;
   double movementamount;

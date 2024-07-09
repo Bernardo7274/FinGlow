@@ -1,8 +1,8 @@
 {
-    "cardnumber": "0000000000000000",
-    "duedate": 2324,
+    "cardnumber": 1234567891234567,
+    "duedate": "23/12/2024",
     "cvv": 111,
-    "movementtype": "Movimiento FinGlow",
-    "movementamount": 2350,
-    "movementdate" : "1402"
+    "movementtype": "Demo",
+    "movementamount": 2350.00,
+    "movementdate" : "23/12/2024"
 }

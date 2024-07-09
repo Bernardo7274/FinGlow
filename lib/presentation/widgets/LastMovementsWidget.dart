@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_string_interpolations
-
 import 'package:FinGlow/data/repositories/Card/card_repository_impl.dart';
 import 'package:FinGlow/domain/usecases/Card/card_usecase.dart';
 import 'package:FinGlow/presentation/bloc/Card/card_bloc.dart';

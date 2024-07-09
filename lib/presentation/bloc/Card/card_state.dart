@@ -3,7 +3,7 @@ import 'package:FinGlow/domain/models/Card/card_model.dart';
 
 class CardState extends Equatable {
   final int? cardnumber;
-  final DateTime? duedate;
+  final String? duedate;
   final int? cvv;
   final String movementtype;
   final double movementamount;
@@ -34,7 +34,7 @@ class CardState extends Equatable {
 
   CardState copyWith({
     int? cardnumber,
-    DateTime? duedate,
+    String? duedate,
     int? cvv,
     String? movementtype,
     double? movementamount,

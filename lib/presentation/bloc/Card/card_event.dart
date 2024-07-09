@@ -19,7 +19,7 @@ class CardNumberChanged extends CardEvent {
 }
 
 class DueDateChanged extends CardEvent {
-  final DateTime duedate;
+  final String duedate;
 
   const DueDateChanged(this.duedate);
 

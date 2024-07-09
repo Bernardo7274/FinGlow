@@ -8,7 +8,7 @@ part of 'card_model.dart';
 
 CardModel _$CardModelFromJson(Map<String, dynamic> json) => CardModel(
       cardnumber: (json['cardnumber'] as num).toInt(),
-      duedate: DateTime.parse(json['duedate'] as String),
+      duedate: json['duedate'] as String,
       cvv: (json['cvv'] as num).toInt(),
       movementtype: json['movementtype'] as String,
       movementamount: (json['movementamount'] as num).toDouble(),
@@ -17,7 +17,7 @@ CardModel _$CardModelFromJson(Map<String, dynamic> json) => CardModel(
 
 Map<String, dynamic> _$CardModelToJson(CardModel instance) => <String, dynamic>{
       'cardnumber': instance.cardnumber,
-      'duedate': instance.duedate.toIso8601String(),
+      'duedate': instance.duedate,
       'cvv': instance.cvv,
       'movementtype': instance.movementtype,
       'movementamount': instance.movementamount,
