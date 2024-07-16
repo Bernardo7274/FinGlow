@@ -1,26 +1,26 @@
-import 'package:FinGlow/domain/usecases/Login/login_form_data.dart' as usecase;
-import 'package:FinGlow/presentation/Bloc/Login/login_event.dart';
-import 'package:FinGlow/presentation/Bloc/Login/login_state.dart';
+// ignore_for_file: use_build_context_synchronously, prefer_const_constructors
+
+import 'package:FinGlow/domain/usecases/Login/login_form_data.dart';
+import 'package:FinGlow/presentation/bloc/Login/login_event.dart';
+import 'package:FinGlow/presentation/bloc/Login/login_state.dart';
+import 'package:FinGlow/presentation/views/home.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  final usecase.LoginFormData loadLogin;
+  final LoginData submitLogin;
+  final BuildContext context;
 
-  LoginBloc(this.loadLogin) : super(const LoginState(email: '', password: '')) {
-    on<LoadLoginDataEvent>((event, emit) async {
-      final loginData = await loadLogin();
-      emit(LoginState.fromModel(loginData));
+  LoginBloc(this.submitLogin, this.context) : super(LoginInitial()) {
+    on<SubmitLoginEvent>((event, emit) async {
+      emit(LoginLoading());
+      try{
+        await submitLogin(event.login);
+        emit(LoginSuccess());
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeView()));
+      } catch (e) {
+        emit(LoginError('Failed to login'));
+      }
     });
-
-    on<EmailChanged>((event, emit) {
-      emit(state.copyWith(email: event.email));
-    });
-    on<PasswordChanged>((event, emit) {
-      emit(state.copyWith(password: event.password));
-    });
-  }
-
-  bool _validateForm() {
-    return state.email.isNotEmpty && state.password.isNotEmpty;
   }
 }

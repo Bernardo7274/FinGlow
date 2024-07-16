@@ -5,7 +5,7 @@ import 'package:FinGlow/domain/usecases/SeminarsAndEvents/load_event_data.dart';
 import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_bloc.dart';
 import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_event.dart';
 import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_state.dart';
-import 'package:FinGlow/presentation/views/SeminarView.dart';
+import 'package:FinGlow/presentation/views/SeminarsandEvents/SeminarView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

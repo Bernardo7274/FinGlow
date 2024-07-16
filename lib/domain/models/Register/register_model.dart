@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:json_annotation/json_annotation.dart';
 
 part 'register_model.g.dart';
@@ -5,31 +7,25 @@ part 'register_model.g.dart';
 @JsonSerializable()
 class RegisterModel {
   String name;
-  String surname;
+  String lastname;
   String email;
-  String phone;
-  DateTime birthDate;
-  String country;
   String rfc;
+  String phone;
   String password;
-  String confirmPassword;
-  bool termsAccepted;
-  bool isValid;
+  int id_bank;
 
   RegisterModel({
     required this.name,
-    required this.surname,
+    required this.lastname,
     required this.email,
-    required this.phone,
-    required this.birthDate,
-    required this.country,
     required this.rfc,
+    required this.phone,
     required this.password,
-    required this.confirmPassword,
-    required this.termsAccepted,
-    required this.isValid,
+    required this.id_bank,
   });
 
-  factory RegisterModel.fromJson(Map<String, dynamic> json) => _$RegisterModelFromJson(json);
+  factory RegisterModel.fromJson(Map<String, dynamic> json) =>
+      _$RegisterModelFromJson(json);
+
   Map<String, dynamic> toJson() => _$RegisterModelToJson(this);
 }

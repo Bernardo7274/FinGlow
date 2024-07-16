@@ -6,7 +6,7 @@ import 'package:FinGlow/domain/usecases/SeminarsAndEvents/load_event_data.dart';
 import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_bloc.dart';
 import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_event.dart';
 import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_state.dart';
-import 'package:FinGlow/presentation/views/SeminarSeminarView.dart';
+import 'package:FinGlow/presentation/views/SeminarsandEvents/SeminarSeminarView.dart';
 
 class SeminarsandeventsView extends StatefulWidget {
   const SeminarsandeventsView({Key? key}) : super(key: key);

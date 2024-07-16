@@ -1,30 +1,18 @@
+import 'package:FinGlow/domain/models/Login/login_model.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class LoginEvent extends Equatable {
   const LoginEvent();
 
   @override
-  List<Object?> get props => [];
+  List<Object> get props => [];
 }
 
-class LoadLoginDataEvent extends LoginEvent {}
+class SubmitLoginEvent extends LoginEvent {
+  final LoginModel login;
 
-class EmailChanged extends LoginEvent {
-  final String email;
-
-  const EmailChanged(this.email);
+  const SubmitLoginEvent(this.login);
 
   @override
-  List<Object?> get props => [email];
+  List<Object> get props => [login];
 }
-
-class PasswordChanged extends LoginEvent {
-  final String password;
-
-  const PasswordChanged(this.password);
-
-  @override
-  List<Object?> get props => [password];
-}
-
-class LoginSubmitted extends LoginEvent {}

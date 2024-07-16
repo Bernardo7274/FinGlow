@@ -1,4 +1,4 @@
-import 'package:FinGlow/presentation/views/register_user.dart';
+import 'package:FinGlow/presentation/views/Register/register_user.dart';
 import 'package:flutter/material.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:FinGlow/presentation/widgets/CustomLoginWidget.dart';
@@ -61,11 +61,15 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: ListView(
+          child: Column(
             children: <Widget>[
               const SizedBox(height: 20),
               const WelcomeWidget(),
-              CustomLoginWidget(isAuthenticated: isAuthenticated),
+              const Expanded(child: LoginPage()),
+              const SizedBox(height: 50),
+              ListView(
+                shrinkWrap: true,
+                children: <Widget>[
                   TextButton(
                     onPressed: () {
                       // Implementar la funcionalidad aquí
@@ -80,76 +84,81 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ),
-              const SizedBox(height: 5),
-              const Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Divider(
-                      color: Colors.white,
-                      thickness: 2,
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 30),
-                    child: Text(
-                      'o',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                  const SizedBox(height: 5),
+                  const Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Divider(
+                          color: Colors.white,
+                          thickness: 2,
+                        ),
                       ),
-                    ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 30),
+                        child: Text(
+                          'o',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Divider(
+                          color: Colors.white,
+                          thickness: 2,
+                        ),
+                      ),
+                    ],
                   ),
-                  Expanded(
-                    child: Divider(
-                      color: Colors.white,
-                      thickness: 2,
-                    ),
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      const Text(
+                        '¿Quieres usar la app de FinGlow?',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Arial',
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12,
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => const UserRegister(),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          'Abrir cuenta',
+                          style: TextStyle(
+                            fontFamily: 'Arial',
+                            fontWeight: FontWeight.w500,
+                            color: Color.fromRGBO(34, 221, 187, 1),
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              const SizedBox(height: 5),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const Text(
-                    '¿Quieres usar la app de FinGlow?',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Arial',
-                      fontWeight: FontWeight.w500,
-                      fontSize: 12,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                      builder: (context) => const UserRegister(),));
+                  const SizedBox(height: 15),
+                  GestureDetector(
+                    onTap: () {
+                      _authenticateWithBiometrics();
                     },
-                    child: const Text(
-                      'Abrir cuenta',
-                      style: TextStyle(
-                        fontFamily: 'Arial',
-                        fontWeight: FontWeight.w500,
-                        color: Color.fromRGBO(34, 221, 187, 1),
-                        fontSize: 12,
+                    child: const Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Icon(
+                        Icons.fingerprint,
+                        size: 50.0,
+                        color: Colors.white,
                       ),
                     ),
                   ),
                 ],
-              ),
-              const SizedBox(height: 15),
-              GestureDetector(
-                onTap: () {
-                  _authenticateWithBiometrics();
-                },
-                child: const Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Icon(
-                    Icons.fingerprint,
-                    size: 50.0,
-                    color: Colors.white,
-                  ),
-                ),
               ),
             ],
           ),
@@ -169,12 +178,9 @@ class _MyHomePageState extends State<MyHomePage> {
         setState(() {
           isAuthenticated = true;
         });
-        /*Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => const HomeView(),
-        ));*/
+        // Navigate to home view
       }
     } catch (e) {
-      // ignore: avoid_print
       print("Error en la autenticación biométrica: $e");
     }
   }

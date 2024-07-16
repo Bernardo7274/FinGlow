@@ -1,5 +1,5 @@
 import 'package:FinGlow/presentation/views/FinancialAdvisor.dart';
-import 'package:FinGlow/presentation/views/Seminarsandevents.dart';
+import 'package:FinGlow/presentation/views/SeminarsandEvents/Seminarsandevents.dart';
 import 'package:FinGlow/presentation/widgets/AccountingandBillingButtonWidget.dart';
 import 'package:FinGlow/presentation/widgets/FinancialAdvisorButtonWidget.dart';
 import 'package:FinGlow/presentation/widgets/NotificationsButtonWidget.dart';

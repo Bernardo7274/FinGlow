@@ -1,35 +1,23 @@
-import 'package:FinGlow/domain/models/Login/login_model.dart';
 import 'package:equatable/equatable.dart';
 
-class LoginState extends Equatable{
-  final String email;
-  final String password;
-
-  const LoginState({
-    this.email = "",
-    this.password = ""
-  });
-
-  factory LoginState.fromModel(LoginModel model){
-    return LoginState(
-      email: model.email,
-      password: model.password,
-    );
-  }
-
-  LoginState copyWith({
-    String? email,
-    String? password
-  }){
-    return LoginState(
-      email: email ?? this.email,
-      password: password ?? this.password
-    );
-  }
+abstract class LoginState extends Equatable {
+  const LoginState();
 
   @override
-  List<Object?> get props => [
-        email,
-        password,
-      ];
+  List<Object> get props => [];
+}
+
+class LoginInitial extends LoginState {}
+
+class LoginLoading extends LoginState {}
+
+class LoginSuccess extends LoginState {}
+
+class LoginError extends LoginState {
+  final String message;
+
+  const LoginError(this.message);
+
+  @override
+  List<Object> get props => [message];
 }
