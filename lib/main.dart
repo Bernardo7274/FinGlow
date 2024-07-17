@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: DecoratedBox(
         decoration: const BoxDecoration(
           gradient: RadialGradient(
@@ -59,108 +59,111 @@ class _MyHomePageState extends State<MyHomePage> {
             radius: 1.0,
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: <Widget>[
-              const SizedBox(height: 20),
-              const WelcomeWidget(),
-              const Expanded(child: LoginPage()),
-              const SizedBox(height: 50),
-              ListView(
-                shrinkWrap: true,
-                children: <Widget>[
-                  TextButton(
-                    onPressed: () {
-                      // Implementar la funcionalidad aquí
-                    },
-                    child: const Text(
-                      'Recuperar contraseñas',
-                      style: TextStyle(
-                        fontFamily: 'Arial',
-                        fontWeight: FontWeight.w500,
-                        color: Color.fromRGBO(34, 221, 187, 1),
-                        fontSize: 12,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 5),
-                  const Row(
-                    children: <Widget>[
-                      Expanded(
-                        child: Divider(
-                          color: Colors.white,
-                          thickness: 2,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30),
-                        child: Text(
-                          'o',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Divider(
-                          color: Colors.white,
-                          thickness: 2,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 5),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      const Text(
-                        '¿Quieres usar la app de FinGlow?',
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: <Widget>[
+                const SizedBox(height: 20),
+                const WelcomeWidget(),
+                const SizedBox(height: 50),
+                const CustomLoginWidget(isAuthenticated: true),
+                ListView(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  children: <Widget>[
+                    TextButton(
+                      onPressed: () {
+                        // Implementar la funcionalidad aquí
+                      },
+                      child: const Text(
+                        'Recuperar contraseñas',
                         style: TextStyle(
-                          color: Colors.white,
                           fontFamily: 'Arial',
                           fontWeight: FontWeight.w500,
+                          color: Color.fromRGBO(34, 221, 187, 1),
                           fontSize: 12,
                         ),
                       ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (context) => const UserRegister(),
+                    ),
+                    const SizedBox(height: 5),
+                    const Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Divider(
+                            color: Colors.white,
+                            thickness: 2,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 30),
+                          child: Text(
+                            'o',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
                             ),
-                          );
-                        },
-                        child: const Text(
-                          'Abrir cuenta',
+                          ),
+                        ),
+                        Expanded(
+                          child: Divider(
+                            color: Colors.white,
+                            thickness: 2,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        const Text(
+                          '¿Quieres usar la app de FinGlow?',
                           style: TextStyle(
+                            color: Colors.white,
                             fontFamily: 'Arial',
                             fontWeight: FontWeight.w500,
-                            color: Color.fromRGBO(34, 221, 187, 1),
                             fontSize: 12,
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 15),
-                  GestureDetector(
-                    onTap: () {
-                      _authenticateWithBiometrics();
-                    },
-                    child: const Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Icon(
-                        Icons.fingerprint,
-                        size: 50.0,
-                        color: Colors.white,
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                builder: (context) => const UserRegister(),
+                              ),
+                            );
+                          },
+                          child: const Text(
+                            'Abrir cuenta',
+                            style: TextStyle(
+                              fontFamily: 'Arial',
+                              fontWeight: FontWeight.w500,
+                              color: Color.fromRGBO(34, 221, 187, 1),
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      onTap: () {
+                        _authenticateWithBiometrics();
+                      },
+                      child: const Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Icon(
+                          Icons.fingerprint,
+                          size: 50.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

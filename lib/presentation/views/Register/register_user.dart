@@ -34,7 +34,9 @@ class _UserRegisterState extends State<UserRegister> {
       body: BlocProvider(
         create: (context) =>
             RegisterBloc(RegisterData(RegisterRepositoryImpl())),
-        child: DecoratedBox(
+        child: BlocBuilder<RegisterBloc, RegisterState>(
+                      builder: (context, state) {
+                        return DecoratedBox(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
@@ -53,73 +55,59 @@ class _UserRegisterState extends State<UserRegister> {
             children: <Widget>[
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: ListView(
-                    children: <Widget>[
-                      const SizedBox(height: 5),
-                      const WelcomeWidget2(),
-                      const SizedBox(height: 20),
-                      _buildTextField(nameController, 'Nombre'),
-                      const SizedBox(height: 10),
-                      _buildTextField(lastnameController, 'Apellido'),
-                      const SizedBox(height: 10),
-                      _buildTextField(emailController, 'Correo electrónico'),
-                      const SizedBox(height: 20),
-                      _buildPhoneNumberField(),
-                      const SizedBox(height: 10),
-                      _buildRFCField(),
-                      const SizedBox(height: 10),
-                      _buildPasswordFields(),
-                      const SizedBox(height: 10),
-                      _buildTermsAndConditions(),
-                      const SizedBox(height: 10),
-                      ElevatedButton(
-                        onPressed: () {
-                          if (_acceptTerms) {
-                            final registerModel = RegisterModel(
-                              name: nameController.text,
-                              lastname: lastnameController.text,
-                              email: emailController.text,
-                              rfc: rfcController.text,
-                              phone: phoneController.text,
-                              password: passwordController.text,
-                              id_bank: 9,
-                            );
+                    padding: const EdgeInsets.all(16.0),
+                    child:  ListView(
+                          children: <Widget>[
+                            const SizedBox(height: 5),
+                            const WelcomeWidget2(),
+                            const SizedBox(height: 20),
+                            _buildTextField(nameController, 'Nombre'),
+                            const SizedBox(height: 10),
+                            _buildTextField(lastnameController, 'Apellido'),
+                            const SizedBox(height: 10),
+                            _buildTextField(
+                                emailController, 'Correo electrónico'),
+                            const SizedBox(height: 20),
+                            _buildPhoneNumberField(),
+                            const SizedBox(height: 10),
+                            _buildRFCField(),
+                            const SizedBox(height: 10),
+                            _buildPasswordFields(),
+                            const SizedBox(height: 10),
+                            _buildTermsAndConditions(),
+                            const SizedBox(height: 10),
+                            ElevatedButton(
+                              onPressed: () {
+                                if (_acceptTerms) {
+                                  final registerModel = RegisterModel(
+                                    name: nameController.text,
+                                    lastname: lastnameController.text,
+                                    email: emailController.text,
+                                    rfc: rfcController.text,
+                                    phone: phoneController.text,
+                                    password: passwordController.text,
+                                    id_bank: 9,
+                                  );
 
-                            context
-                                .read<RegisterBloc>()
-                                .add(SubmitRegisterEvent(registerModel));
-                          }
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.teal, // Fondo del botón
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 50),
-                        ),
-                        child: const Text('Registrarse',
-                            style: TextStyle(color: Colors.white)),
+                                  BlocProvider.of<RegisterBloc>(context)
+                                      .add(SubmitRegisterEvent(registerModel));
+                                }
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.teal, // Fondo del botón
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: 50),
+                              ),
+                              child: const Text('Registrarse',
+                                  style: TextStyle(color: Colors.white)),
+                            ),
+                            
+                          ],
+                        )
                       ),
-                      BlocBuilder<RegisterBloc, RegisterState>(
-                        builder: (context, state) {
-                          if (state is RegisterLoading) {
-                            return const CircularProgressIndicator();
-                          } else if (state is RegisterSuccess) {
-                            return const Text('Registro exitoso',
-                                style: TextStyle(color: Colors.green));
-                          } else if (state is RegisterError) {
-                            return Text(state.message,
-                                style: const TextStyle(color: Colors.red));
-                          } else {
-                            return Container();
-                          }
-                        },
-                      ),
-                    ],
-                  ),
-                ),
               ),
               Container(
                 color: const Color.fromRGBO(16, 57, 121, 1),
@@ -128,9 +116,9 @@ class _UserRegisterState extends State<UserRegister> {
               ),
             ],
           ),
-        ),
-      ),
-    );
+        );
+  })
+    ));
   }
 
   Widget _buildTextField(TextEditingController controller, String labelText) {
