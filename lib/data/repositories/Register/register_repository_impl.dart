@@ -11,6 +11,14 @@ class RegisterRepositoryImpl implements RegisterRepository {
     try {
       final response = await _dio.post('$url/users', data: register.toJson());
       return response.data; // Retornar solo los datos de la respuesta
+    } on DioError catch (e) {
+      if (e.response != null) {
+        print('Dio error: ${e.response!.data}');
+        throw Exception('Failed to submit register: ${e.response!.data}');
+      } else {
+        print('Error sending request!');
+        throw Exception('Failed to submit register: ${e.message}');
+      }
     } catch (e) {
       print(e);
       throw Exception('Failed to submit register');

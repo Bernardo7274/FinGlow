@@ -24,8 +24,7 @@ class RegisterModel {
     required this.id_bank,
   });
 
-  factory RegisterModel.fromJson(Map<String, dynamic> json) =>
-      _$RegisterModelFromJson(json);
+  factory RegisterModel.fromJson(Map<String, dynamic> json) => _$RegisterModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$RegisterModelToJson(this);
 }

@@ -1,3 +1,4 @@
+import 'package:FinGlow/presentation/widgets/WelcomeWidget2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:FinGlow/domain/models/Register/register_model.dart';
@@ -32,93 +33,91 @@ class _UserRegisterState extends State<UserRegister> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: BlocProvider(
-        create: (context) =>
-            RegisterBloc(RegisterData(RegisterRepositoryImpl())),
+        create: (context) => RegisterBloc(RegisterData(RegisterRepositoryImpl())),
         child: BlocBuilder<RegisterBloc, RegisterState>(
-                      builder: (context, state) {
-                        return DecoratedBox(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color.fromRGBO(1, 19, 48, 1),
-                Color.fromRGBO(4, 38, 92, 1),
-              ],
-              stops: [
-                0.3,
-                0.7,
-              ],
-            ),
-          ),
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child:  ListView(
-                          children: <Widget>[
-                            const SizedBox(height: 5),
-                            const WelcomeWidget2(),
-                            const SizedBox(height: 20),
-                            _buildTextField(nameController, 'Nombre'),
-                            const SizedBox(height: 10),
-                            _buildTextField(lastnameController, 'Apellido'),
-                            const SizedBox(height: 10),
-                            _buildTextField(
-                                emailController, 'Correo electrónico'),
-                            const SizedBox(height: 20),
-                            _buildPhoneNumberField(),
-                            const SizedBox(height: 10),
-                            _buildRFCField(),
-                            const SizedBox(height: 10),
-                            _buildPasswordFields(),
-                            const SizedBox(height: 10),
-                            _buildTermsAndConditions(),
-                            const SizedBox(height: 10),
-                            ElevatedButton(
-                              onPressed: () {
-                                if (_acceptTerms) {
-                                  final registerModel = RegisterModel(
-                                    name: nameController.text,
-                                    lastname: lastnameController.text,
-                                    email: emailController.text,
-                                    rfc: rfcController.text,
-                                    phone: phoneController.text,
-                                    password: passwordController.text,
-                                    id_bank: 9,
-                                  );
+          builder: (context, state) {
+            return DecoratedBox(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color.fromRGBO(1, 19, 48, 1),
+                    Color.fromRGBO(4, 38, 92, 1),
+                  ],
+                  stops: [
+                    0.3,
+                    0.7,
+                  ],
+                ),
+              ),
+              child: Column(
+                children: <Widget>[
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: ListView(
+                        children: <Widget>[
+                          const SizedBox(height: 5),
+                          const WelcomeWidget2(),
+                          const SizedBox(height: 20),
+                          _buildTextField(nameController, 'Nombre'),
+                          const SizedBox(height: 10),
+                          _buildTextField(lastnameController, 'Apellido'),
+                          const SizedBox(height: 10),
+                          _buildTextField(emailController, 'Correo electrónico'),
+                          const SizedBox(height: 20),
+                          _buildPhoneNumberField(),
+                          const SizedBox(height: 10),
+                          _buildRFCField(),
+                          const SizedBox(height: 10),
+                          _buildPasswordFields(),
+                          const SizedBox(height: 10),
+                          _buildTermsAndConditions(),
+                          const SizedBox(height: 10),
+                          ElevatedButton(
+                            onPressed: () {
+                              if (_acceptTerms) {
+                                final registerModel = RegisterModel(
+                                  name: nameController.text,
+                                  lastname: lastnameController.text,
+                                  email: emailController.text,
+                                  rfc: rfcController.text,
+                                  phone: phoneController.text,
+                                  password: passwordController.text,
+                                  id_bank: 9,
+                                );
 
-                                  BlocProvider.of<RegisterBloc>(context)
-                                      .add(SubmitRegisterEvent(registerModel));
-                                }
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.teal, // Fondo del botón
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 50),
+                                BlocProvider.of<RegisterBloc>(context).add(SubmitRegisterEvent(registerModel));
+                              }
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.teal, // Fondo del botón
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
                               ),
-                              child: const Text('Registrarse',
-                                  style: TextStyle(color: Colors.white)),
+                              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
                             ),
-                            
-                          ],
-                        )
+                            child: const Text('Registrarse', style: TextStyle(color: Colors.white)),
+                          ),
+                          if (state is RegisterLoading) const CircularProgressIndicator(),
+                          if (state is RegisterError) Text(state.message, style: const TextStyle(color: Colors.red)),
+                        ],
                       ),
+                    ),
+                  ),
+                  Container(
+                    color: const Color.fromRGBO(16, 57, 121, 1),
+                    width: double.infinity,
+                    height: 40,
+                  ),
+                ],
               ),
-              Container(
-                color: const Color.fromRGBO(16, 57, 121, 1),
-                width: double.infinity,
-                height: 40,
-              ),
-            ],
-          ),
-        );
-  })
-    ));
+            );
+          },
+        ),
+      ),
+    );
   }
 
   Widget _buildTextField(TextEditingController controller, String labelText) {
@@ -252,53 +251,20 @@ class _UserRegisterState extends State<UserRegister> {
   }
 
   Widget _buildTermsAndConditions() {
-    return Row(
-      children: [
-        Checkbox(
-          value: _acceptTerms,
-          onChanged: (value) {
-            setState(() {
-              _acceptTerms = value!;
-            });
-          },
-          activeColor: Colors.teal,
-          checkColor: Colors.white,
-        ),
-        const Text(
-          'Aceptar términos y condiciones',
-          style: TextStyle(color: Colors.white),
-        ),
-      ],
-    );
-  }
-}
-
-class WelcomeWidget2 extends StatelessWidget {
-  const WelcomeWidget2({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 312,
-      height: 32,
-      decoration: BoxDecoration(
-        color: const Color.fromRGBO(16, 57, 121, 1),
-        borderRadius: BorderRadius.circular(5),
+    return CheckboxListTile(
+      title: const Text(
+        'Acepto los términos y condiciones',
+        style: TextStyle(color: Colors.white),
       ),
-      child: const Center(
-        child: Text(
-          'Por favor registrese para empezar a usar FinGlow',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Colors.white,
-            fontFamily: 'Inter',
-            fontSize: 16,
-            letterSpacing: 0,
-            fontWeight: FontWeight.normal,
-            height: 1,
-          ),
-        ),
-      ),
+      value: _acceptTerms,
+      onChanged: (bool? value) {
+        setState(() {
+          _acceptTerms = value ?? false;
+        });
+      },
+      controlAffinity: ListTileControlAffinity.leading,
+      activeColor: Colors.teal,
+      checkColor: Colors.white,
     );
   }
 }
