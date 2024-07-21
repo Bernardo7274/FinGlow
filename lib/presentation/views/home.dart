@@ -215,7 +215,7 @@ class _HomeViewState extends State<HomeView> {
                       child: _currentView,
                     ),
                     const SizedBox(height: 16),
-                    LastMovementsWidget(),
+                    const LastMovementsWidget(),
                     // Otros Widgets aquí...
                   ],
                 );

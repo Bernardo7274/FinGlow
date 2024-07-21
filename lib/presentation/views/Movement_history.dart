@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 class MovementHistoryView extends StatelessWidget {
   final List<Map<String, dynamic>> movements;
 
-  const MovementHistoryView({Key? key, required this.movements}) : super(key: key);
+  const MovementHistoryView({super.key, required this.movements});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Historial de movimientos'),
-        backgroundColor: Color.fromRGBO(1, 19, 48, 1),
+        title: const Text('Historial de movimientos'),
+        backgroundColor: const Color.fromRGBO(1, 19, 48, 1),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -35,7 +35,7 @@ class MovementHistoryView extends StatelessWidget {
             return ListTile(
               title: Text(
                 movement['title'],
-                style: TextStyle(
+                style: const TextStyle(
                   color: Color.fromRGBO(34, 221, 187, 1),
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
@@ -43,7 +43,7 @@ class MovementHistoryView extends StatelessWidget {
               ),
               subtitle: Text(
                 movement['date'],
-                style: TextStyle(
+                style: const TextStyle(
                   color: Color.fromRGBO(255, 255, 255, 1),
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
@@ -51,7 +51,7 @@ class MovementHistoryView extends StatelessWidget {
               ),
               trailing: Text(
                 movement['amount'].toString(),
-                style: TextStyle(
+                style: const TextStyle(
                   color: Color.fromRGBO(255, 255, 255, 1),
                   fontSize: 14,
                   fontWeight: FontWeight.bold,

@@ -9,6 +9,8 @@ import 'package:FinGlow/presentation/views/movement_history.dart';
 import 'package:FinGlow/presentation/views/movement_info.dart';
 
 class LastMovementsWidget extends StatelessWidget {
+  const LastMovementsWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -36,7 +38,7 @@ class LastMovementsWidget extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              MovementHistoryView(movements: [])),
+                              const MovementHistoryView(movements: [])),
                     );
                   },
                   child: const Text(
@@ -66,7 +68,7 @@ class LastMovementsWidget extends StatelessWidget {
                   children: [
                     movementTile(
                       context,
-                      title: "${state.movementtype}",
+                      title: state.movementtype,
                       date: "${state.movementdate}",
                       amount: state.movementamount,
                       unknownIconText: "Movimiento FinGlow",

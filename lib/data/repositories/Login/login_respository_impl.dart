@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:FinGlow/domain/models/Login/login_model.dart';
 import 'package:FinGlow/domain/repositories/Login/login_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:FinGlow/logger.dart';  // Importa el logger
 
 class LoginRepositoryImpl implements LoginRepository {
   final Dio _dio = Dio();
@@ -17,7 +18,7 @@ class LoginRepositoryImpl implements LoginRepository {
         await _saveToken(token);
       }
     } on DioException catch (e) {
-      print(e);
+      AppLogger.error('Failed to login: $e', e);  // Usa el logger para errores
       throw Exception('Failed to login');
     }
   }

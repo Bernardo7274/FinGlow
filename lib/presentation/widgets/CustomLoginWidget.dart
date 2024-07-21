@@ -14,8 +14,7 @@ import 'package:FinGlow/domain/models/Login/login_model.dart';
 class CustomLoginWidget extends StatefulWidget {
   final bool isAuthenticated;
 
-  const CustomLoginWidget({Key? key, required this.isAuthenticated})
-      : super(key: key);
+  const CustomLoginWidget({super.key, required this.isAuthenticated});
 
   @override
   State<CustomLoginWidget> createState() => _CustomLoginWidgetState();

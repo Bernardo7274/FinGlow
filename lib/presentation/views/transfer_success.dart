@@ -7,8 +7,7 @@ class transferSuccessView extends StatefulWidget {
   final String amount;
 
   const transferSuccessView(
-      {Key? key, required this.name, required this.amount})
-      : super(key: key);
+      {super.key, required this.name, required this.amount});
 
   @override
   State<transferSuccessView> createState() => _transferSuccessState();

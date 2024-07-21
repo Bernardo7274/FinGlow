@@ -12,7 +12,7 @@ class MovementInfoView extends StatelessWidget {
   final String applicationDate;
   final String folio;
 
-  const MovementInfoView({
+  const MovementInfoView({super.key, 
     required this.title,
     required this.date,
     required this.amount,
@@ -29,11 +29,11 @@ class MovementInfoView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Detalles del movimiento'),
-        backgroundColor: Color.fromRGBO(1, 19, 48, 1),
+        title: const Text('Detalles del movimiento'),
+        backgroundColor: const Color.fromRGBO(1, 19, 48, 1),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -44,23 +44,23 @@ class MovementInfoView extends StatelessWidget {
           ),
         ),
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 title,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 24,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Card(
-                color: Color.fromRGBO(5, 32, 74, 1),
+                color: const Color.fromRGBO(5, 32, 74, 1),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
@@ -76,7 +76,7 @@ class MovementInfoView extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -93,15 +93,15 @@ class MovementInfoView extends StatelessWidget {
 
   Widget _buildDetailRow(IconData icon, String label, String value) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 28.0),
+      padding: const EdgeInsets.symmetric(vertical: 28.0),
       child: Row(
         children: [
           Icon(icon, color: Colors.white70, size: 20),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Expanded(
-            child: Text(label, style: TextStyle(color: Colors.white70, fontSize: 16)),
+            child: Text(label, style: const TextStyle(color: Colors.white70, fontSize: 16)),
           ),
-          Text(value, style: TextStyle(color: Colors.white, fontSize: 16)),
+          Text(value, style: const TextStyle(color: Colors.white, fontSize: 16)),
         ],
       ),
     );
@@ -114,8 +114,8 @@ class MovementInfoView extends StatelessWidget {
           icon: Icon(icon, color: Colors.white, size: 30),
           onPressed: () {},
         ),
-        SizedBox(height: 5),
-        Text(label, style: TextStyle(color: Colors.white, fontSize: 14)),
+        const SizedBox(height: 5),
+        Text(label, style: const TextStyle(color: Colors.white, fontSize: 14)),
       ],
     );
   }

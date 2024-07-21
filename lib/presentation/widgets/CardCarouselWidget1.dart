@@ -12,6 +12,8 @@ class CardCarouselWidget2 extends StatefulWidget {
     "assets/images/Publicidad FinGlow(5).png",
   ];
 
+ CardCarouselWidget2({super.key});
+
   @override
   // ignore: library_private_types_in_public_api
   _CardCarouselWidget2State createState() => _CardCarouselWidget2State();
@@ -43,7 +45,6 @@ class _CardCarouselWidget2State extends State<CardCarouselWidget2> {
           itemBuilder: (context, index, realIdx) {
             return GestureDetector(
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.8,
                 margin: const EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),

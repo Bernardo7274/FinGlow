@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // Asegúrate de importar flutter_bloc si usas BlocProvider y BlocBuilder
 
 class TransferAccountFG extends StatefulWidget {
-  const TransferAccountFG({Key? key}) : super(key: key);
+  const TransferAccountFG({super.key});
 
   @override
   State<TransferAccountFG> createState() => _TransferAccountFGState();
@@ -49,7 +49,7 @@ class _TransferAccountFGState extends State<TransferAccountFG> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_back_ios_new_rounded,
                       color: Colors.white,
                     ),
@@ -57,7 +57,7 @@ class _TransferAccountFGState extends State<TransferAccountFG> {
                       Navigator.pop(context);
                     },
                   ),
-                  Expanded(
+                  const Expanded(
                     child: Center(
                       child: Text(
                         '¿A quién le quieres transferir?',
@@ -72,15 +72,15 @@ class _TransferAccountFGState extends State<TransferAccountFG> {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Container(
                 height: 36,
                 decoration: BoxDecoration(
-                  color: Color(0xFF24344E),
+                  color: const Color(0xFF24344E),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: Row(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: const Row(
                   children: [
                     Icon(
                       Icons.search,
@@ -101,9 +101,9 @@ class _TransferAccountFGState extends State<TransferAccountFG> {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 6.0),
+              const SizedBox(height: 20),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 6.0),
                 child: Text(
                   'Recientes',
                   style: TextStyle(
@@ -113,7 +113,7 @@ class _TransferAccountFGState extends State<TransferAccountFG> {
                   ),
                 ),
               ),
-              SizedBox(height: 18),
+              const SizedBox(height: 18),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -123,9 +123,9 @@ class _TransferAccountFGState extends State<TransferAccountFG> {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 6.0),
+              const SizedBox(height: 20),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 6.0),
                 child: Text(
                   'Tus contactos',
                   style: TextStyle(
@@ -135,10 +135,10 @@ class _TransferAccountFGState extends State<TransferAccountFG> {
                   ),
                 ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               ListView(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 children: [
                   for (var contact in recentContacts)
                     _buildContactListItem(contact["name"], contact["phone"]),
@@ -158,20 +158,20 @@ class _TransferAccountFGState extends State<TransferAccountFG> {
       child: Column(
         children: [
           CircleAvatar(
-            backgroundColor: Color(0xFFC4C4C4),
+            backgroundColor: const Color(0xFFC4C4C4),
             child: Text(
               initials,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
                 fontSize: 15.0,
               ),
             ),
           ),
-          SizedBox(height: 4),
+          const SizedBox(height: 4),
           Text(
             name,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 12.0,
             ),
@@ -192,10 +192,10 @@ class _TransferAccountFGState extends State<TransferAccountFG> {
         );
       },
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-        padding: EdgeInsets.all(16.0),
+        margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+        padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
-          color: Color(0xFF063d4e),
+          color: const Color(0xFF063d4e),
           borderRadius: BorderRadius.circular(24.0),
         ),
         child: Row(
@@ -204,10 +204,10 @@ class _TransferAccountFGState extends State<TransferAccountFG> {
               width: 47.0,
               height: 47.0,
               child: CircleAvatar(
-                backgroundColor: Color(0xFFC4C4C4),
+                backgroundColor: const Color(0xFFC4C4C4),
                 child: Text(
                   _extractInitials(name),
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 15.0,
@@ -215,23 +215,23 @@ class _TransferAccountFGState extends State<TransferAccountFG> {
                 ),
               ),
             ),
-            SizedBox(width: 16.0),
+            const SizedBox(width: 16.0),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     name,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Color(0xFF2877AC),
                       fontWeight: FontWeight.bold,
                       fontSize: 14.0,
                     ),
                   ),
-                  SizedBox(height: 4.0),
+                  const SizedBox(height: 4.0),
                   Text(
                     phone,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 10.0,
                     ),
@@ -250,7 +250,7 @@ class _TransferAccountFGState extends State<TransferAccountFG> {
     if (parts.length >= 2) {
       return '${parts[0][0]}${parts[1][0]}'.toUpperCase();
     } else if (parts.isNotEmpty) {
-      return '${parts[0][0]}'.toUpperCase();
+      return parts[0][0].toUpperCase();
     } else {
       return '';
     }

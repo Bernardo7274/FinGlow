@@ -10,8 +10,7 @@ class CardCarouselWidget extends StatelessWidget {
     'assets/images/Tarjeta_Gold_virtual.png',
   ];
 
-  CardCarouselWidget({Key? key, required void Function(int index) onCardTapped})
-      : super(key: key);
+  CardCarouselWidget({super.key, required void Function(int index) onCardTapped});
 
   void onCardTapped(BuildContext context, int index) {
     switch (index) {

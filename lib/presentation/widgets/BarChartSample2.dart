@@ -2,9 +2,11 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class BarChartSample2 extends StatelessWidget {
+  const BarChartSample2({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 350, // Ajusta la altura según tu necesidad
       child: BarChart(
         BarChartData(
@@ -14,32 +16,50 @@ class BarChartSample2 extends StatelessWidget {
             enabled: false,
           ),
           titlesData: FlTitlesData(
-            leftTitles: SideTitles(showTitles: false),
-            bottomTitles: SideTitles(
-              showTitles: true,
-              getTextStyles: (context, value) => const TextStyle(
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  fontSize: 18), // Aumenta el tamaño de fuente
-              margin: 10,
-              getTitles: (double value) {
-                switch (value.toInt()) {
-                  case 0:
-                    return 'L';
-                  case 1:
-                    return 'M';
-                  case 2:
-                    return 'M';
-                  case 3:
-                    return 'J';
-                  case 4:
-                    return 'V';
-                  default:
-                    return '';
-                }
-              },
+            leftTitles: const AxisTitles(
+              sideTitles: SideTitles(showTitles: false),
+            ),
+            bottomTitles: AxisTitles(
+              sideTitles: SideTitles(
+                showTitles: true,
+                getTitlesWidget: (value, meta) {
+                  const style = TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                  );
+                  Widget text;
+                  switch (value.toInt()) {
+                    case 0:
+                      text = const Text('L', style: style);
+                      break;
+                    case 1:
+                      text = const Text('M', style: style);
+                      break;
+                    case 2:
+                      text = const Text('M', style: style);
+                      break;
+                    case 3:
+                      text = const Text('J', style: style);
+                      break;
+                    case 4:
+                      text = const Text('V', style: style);
+                      break;
+                    default:
+                      text = const Text('', style: style);
+                      break;
+                  }
+                  return SideTitleWidget(
+                    axisSide: meta.axisSide,
+                    space:
+                        10, // Ajusta el espacio entre los títulos y las barras
+                    child: text,
+                  );
+                },
+                reservedSize: 40,
+              ),
             ),
           ),
-          gridData: FlGridData(show: false),
+          gridData: const FlGridData(show: false),
           borderData: FlBorderData(
             show: false,
           ),
@@ -49,13 +69,15 @@ class BarChartSample2 extends StatelessWidget {
               barsSpace: 4,
               barRods: [
                 BarChartRodData(
-                    y: 26,
-                    colors: [Color(0xff19bfff)],
-                    width: 15), // Aumenta el ancho
+                  toY: 26,
+                  color: const Color(0xff19bfff),
+                  width: 15,
+                ),
                 BarChartRodData(
-                    y: 20,
-                    colors: [Color(0xff2c51a4)],
-                    width: 15), // Aumenta el ancho
+                  toY: 20,
+                  color: const Color(0xff2c51a4),
+                  width: 15,
+                ),
               ],
             ),
             BarChartGroupData(
@@ -63,13 +85,15 @@ class BarChartSample2 extends StatelessWidget {
               barsSpace: 4,
               barRods: [
                 BarChartRodData(
-                    y: 24,
-                    colors: [Color(0xff19bfff)],
-                    width: 15), // Aumenta el ancho
+                  toY: 24,
+                  color: const Color(0xff19bfff),
+                  width: 15,
+                ),
                 BarChartRodData(
-                    y: 18,
-                    colors: [Color(0xff2c51a4)],
-                    width: 15), // Aumenta el ancho
+                  toY: 18,
+                  color: const Color(0xff2c51a4),
+                  width: 15,
+                ),
               ],
             ),
             BarChartGroupData(
@@ -77,13 +101,15 @@ class BarChartSample2 extends StatelessWidget {
               barsSpace: 4,
               barRods: [
                 BarChartRodData(
-                    y: 23,
-                    colors: [Color(0xff19bfff)],
-                    width: 15), // Aumenta el ancho
+                  toY: 23,
+                  color: const Color(0xff19bfff),
+                  width: 15,
+                ),
                 BarChartRodData(
-                    y: 13,
-                    colors: [Color(0xff2c51a4)],
-                    width: 15), // Aumenta el ancho
+                  toY: 13,
+                  color: const Color(0xff2c51a4),
+                  width: 15,
+                ),
               ],
             ),
             BarChartGroupData(
@@ -91,13 +117,15 @@ class BarChartSample2 extends StatelessWidget {
               barsSpace: 4,
               barRods: [
                 BarChartRodData(
-                    y: 25,
-                    colors: [Color(0xff19bfff)],
-                    width: 15), // Aumenta el ancho
+                  toY: 25,
+                  color: const Color(0xff19bfff),
+                  width: 15,
+                ),
                 BarChartRodData(
-                    y: 20,
-                    colors: [Color(0xff2c51a4)],
-                    width: 15), // Aumenta el ancho
+                  toY: 20,
+                  color: const Color(0xff2c51a4),
+                  width: 15,
+                ),
               ],
             ),
             BarChartGroupData(
@@ -105,13 +133,15 @@ class BarChartSample2 extends StatelessWidget {
               barsSpace: 4,
               barRods: [
                 BarChartRodData(
-                    y: 23,
-                    colors: [Color(0xff19bfff)],
-                    width: 15), // Aumenta el ancho
+                  toY: 23,
+                  color: const Color(0xff19bfff),
+                  width: 15,
+                ),
                 BarChartRodData(
-                    y: 16,
-                    colors: [Color(0xff2c51a4)],
-                    width: 15), // Aumenta el ancho
+                  toY: 16,
+                  color: const Color(0xff2c51a4),
+                  width: 15,
+                ),
               ],
             ),
           ],

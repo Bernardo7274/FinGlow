@@ -10,7 +10,7 @@ import 'package:FinGlow/presentation/widgets/MensualWidget.dart';
 import 'package:FinGlow/presentation/widgets/SemanalWidget.dart';
 
 class DashboardView extends StatefulWidget {
-  const DashboardView({Key? key}) : super(key: key);
+  const DashboardView({super.key});
 
   @override
   State<DashboardView> createState() => _DashboardViewState();

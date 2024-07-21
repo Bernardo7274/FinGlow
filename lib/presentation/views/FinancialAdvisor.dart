@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart'; // Add this import
 
 class FinancialAdvisor extends StatefulWidget {
-  const FinancialAdvisor({Key? key}) : super(key: key);
+  const FinancialAdvisor({super.key});
 
   @override
   State<FinancialAdvisor> createState() => _FinancialAdvisorViewState();

@@ -1,7 +1,7 @@
 // ignore_for_file: unnecessary_null_comparison
 
 import 'package:FinGlow/domain/models/Transaccion/transactions_model.dart';
-import 'package:FinGlow/domain/repositories/Transactions/transactionsD_repository.dart';
+import 'package:FinGlow/domain/repositories/Transactions/transactions_d_repository.dart';
 
 class LoadTransferenciaBancaria {
   final TransactionRepository repository;
@@ -9,7 +9,7 @@ class LoadTransferenciaBancaria {
   LoadTransferenciaBancaria(this.repository);
 
   Future<TransferenciaBancariaModel> call() async {
-    final transferencia = await repository.LoadTransaction();
+    final transferencia = await repository.loadTransaction();
 
     // Validaciones
     if (transferencia.id_transaccion.isEmpty || !RegExp(r'^[a-zA-Z0-9]+$').hasMatch(transferencia.id_transaccion)) {

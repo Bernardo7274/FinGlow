@@ -4,7 +4,7 @@ import 'package:FinGlow/presentation/widgets/transfer_option_box.dart';
 import 'package:flutter/material.dart';
 
 class TransferMoneyView extends StatefulWidget {
-  const TransferMoneyView({Key? key}) : super(key: key);
+  const TransferMoneyView({super.key});
 
   @override
   State<TransferMoneyView> createState() => _TransferMoneyViewState();
@@ -40,7 +40,7 @@ class _TransferMoneyViewState extends State<TransferMoneyView> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_back_ios_new_rounded,
                       color: Colors.white,
                     ),
@@ -48,7 +48,7 @@ class _TransferMoneyViewState extends State<TransferMoneyView> {
                       Navigator.pop(context);
                     },
                   ),
-                  Expanded(
+                  const Expanded(
                     child: Center(
                       child: Text(
                         'Transferir Dinero',
@@ -63,10 +63,9 @@ class _TransferMoneyViewState extends State<TransferMoneyView> {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Center(
                 child: Container(
-                  width: MediaQuery.of(context).size.width * 0.8,
                   child: TransferOptionBox(
                     title1: 'A cuenta FinGlow',
                     subtitle1: 'Con e-mail celular o contacto',
@@ -76,7 +75,7 @@ class _TransferMoneyViewState extends State<TransferMoneyView> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => TransferAccountFG(),
+                          builder: (context) => const TransferAccountFG(),
                         ),
                       );                    },
                     onTap2: () {
@@ -85,10 +84,10 @@ class _TransferMoneyViewState extends State<TransferMoneyView> {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               GestureDetector(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 16.0),
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 16.0),
                   child: Text(
                     'Volver a transferir',
                     style: TextStyle(
@@ -99,7 +98,7 @@ class _TransferMoneyViewState extends State<TransferMoneyView> {
               ),
               // Envuelve el widget NameList en un Container
               Container(
-                child: NameList(),
+                child: const NameList(),
               ),
             ],
           ),

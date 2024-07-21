@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ProfileButtonWidget extends StatelessWidget {
   final VoidCallback onTap;
-  const ProfileButtonWidget({Key? key, required this.onTap}) : super(key: key);
+  const ProfileButtonWidget({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class FinancialAdvisor2 extends StatefulWidget {
-  const FinancialAdvisor2({Key? key}) : super(key: key);
+  const FinancialAdvisor2({super.key});
 
   @override
   State<FinancialAdvisor2> createState() => _FinancialAdvisor2ViewState();

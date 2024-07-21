@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AccountingandBillingButtonWidget extends StatelessWidget {
   final VoidCallback onTap;
-  const AccountingandBillingButtonWidget({Key? key, required this.onTap}) : super(key: key);
+  const AccountingandBillingButtonWidget({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

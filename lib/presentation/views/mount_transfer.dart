@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 class MountTransferView extends StatefulWidget {
   final String name;
 
-  const MountTransferView({Key? key, required this.name}) : super(key: key);
+  const MountTransferView({super.key, required this.name});
 
   @override
   State<MountTransferView> createState() => _MountTransferViewState();
@@ -41,7 +41,7 @@ class _MountTransferViewState extends State<MountTransferView> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_back_ios_new_rounded,
                       color: Colors.white,
                     ),
@@ -49,7 +49,7 @@ class _MountTransferViewState extends State<MountTransferView> {
                       Navigator.pop(context);
                     },
                   ),
-                  Expanded(
+                  const Expanded(
                     child: Center(
                       child: Text(
                         '¿Cuánto dinero quieres transferir?',
@@ -64,7 +64,7 @@ class _MountTransferViewState extends State<MountTransferView> {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Center(
                 child: Column(
                   children: [
@@ -72,20 +72,20 @@ class _MountTransferViewState extends State<MountTransferView> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         CircleAvatar(
-                          backgroundColor: Color(0xFFC4C4C4),
+                          backgroundColor: const Color(0xFFC4C4C4),
                           child: Text(
                             widget.name.substring(0, 1).toUpperCase(),
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: 24.0,
                             ),
                           ),
                         ),
-                        SizedBox(width: 16),
+                        const SizedBox(width: 16),
                         Text(
                           widget.name,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 18.0,
                             fontWeight: FontWeight.bold,
@@ -93,18 +93,18 @@ class _MountTransferViewState extends State<MountTransferView> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           '\$',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 32.0,
                           ),
                         ),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         SizedBox(
                           width: 150,
                           child: _buildAmountTextField(amount, (value) {
@@ -115,9 +115,9 @@ class _MountTransferViewState extends State<MountTransferView> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 40),
-                    Row(children: [
-                      const Expanded(
+                    const SizedBox(height: 40),
+                    const Row(children: [
+                      Expanded(
                         child: Padding(
                           padding: EdgeInsets.only(left: 6.0),
                           child: Text(
@@ -131,20 +131,20 @@ class _MountTransferViewState extends State<MountTransferView> {
                         ),
                       ),
                     ]),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
                           child: Container(
-                            margin: EdgeInsets.only(left: 6.0),
+                            margin: const EdgeInsets.only(left: 6.0),
                             decoration: BoxDecoration(
-                              color: Color(0xFF1E3559),
+                              color: const Color(0xFF1E3559),
                               borderRadius: BorderRadius.circular(8.0),
                             ),
-                            child: Padding(
+                            child: const Padding(
                               padding:
-                                  const EdgeInsets.symmetric(horizontal: 10.0),
+                                  EdgeInsets.symmetric(horizontal: 10.0),
                               child: TextField(
                                 style: TextStyle(color: Colors.white),
                                 decoration: InputDecoration(
@@ -156,7 +156,7 @@ class _MountTransferViewState extends State<MountTransferView> {
                             ),
                           ),
                         ),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         ElevatedButton(
                           onPressed: () {
                             // Navegar a la vista confirm_transaction.dart
@@ -169,13 +169,13 @@ class _MountTransferViewState extends State<MountTransferView> {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF0A5959),
+                            backgroundColor: const Color(0xFF0A5959),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 12.0),
+                          child: const Padding(
+                            padding: EdgeInsets.symmetric(vertical: 12.0),
                             child: Text(
                               'Continuar',
                               style: TextStyle(color: Colors.white),
@@ -187,7 +187,7 @@ class _MountTransferViewState extends State<MountTransferView> {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -205,10 +205,10 @@ Widget _buildAmountTextField(String amount, ValueChanged<String> onChanged) {
     },
     keyboardType: TextInputType.number,
     textAlign: TextAlign.center,
-    style: TextStyle(color: Colors.white, fontSize: 32.0),
+    style: const TextStyle(color: Colors.white, fontSize: 32.0),
     decoration: InputDecoration(
       hintText: amount == '0.00' ? '' : '0.00',
-      hintStyle: TextStyle(color: Colors.grey, fontSize: 32.0),
+      hintStyle: const TextStyle(color: Colors.grey, fontSize: 32.0),
       border: InputBorder.none,
       counterText: '', // Elimina la visualización de contador
     ),

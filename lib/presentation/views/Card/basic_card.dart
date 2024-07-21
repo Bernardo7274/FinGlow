@@ -80,7 +80,7 @@ class _BasicCardViewState extends State<BasicCardView> {
                 ],
               ),
               const SizedBox(height: 35),
-              LastMovementsWidget(),
+              const LastMovementsWidget(),
             ],
           ),
         ),

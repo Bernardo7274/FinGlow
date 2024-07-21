@@ -9,7 +9,7 @@ import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_st
 import 'package:FinGlow/presentation/views/SeminarsandEvents/SeminarSeminarView.dart';
 
 class SeminarsandeventsView extends StatefulWidget {
-  const SeminarsandeventsView({Key? key}) : super(key: key);
+  const SeminarsandeventsView({super.key});
 
   @override
   State<SeminarsandeventsView> createState() => _SeminarsandeventsViewState();

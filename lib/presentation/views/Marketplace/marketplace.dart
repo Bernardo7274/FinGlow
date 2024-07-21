@@ -72,7 +72,6 @@ class _MarketplaceViewState extends State<MarketplaceView> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15.0), // Define el espacio lateral aquí
                 child: SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.8, // Ajusta el ancho del menú al 80% del ancho de la pantalla
                   child: Container(
                     margin: const EdgeInsets.symmetric(vertical: 20.0),
                     padding: const EdgeInsets.all(0.8),

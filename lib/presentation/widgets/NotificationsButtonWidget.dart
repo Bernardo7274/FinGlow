@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class NotificationsButtonWidget extends StatelessWidget {
   final VoidCallback onTap;
-  const NotificationsButtonWidget({Key? key, required this.onTap}) : super(key: key);
+  const NotificationsButtonWidget({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

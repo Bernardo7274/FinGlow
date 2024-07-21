@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class SeminarsandeventsButtonWidget extends StatelessWidget {
   final VoidCallback onTap;
-  const SeminarsandeventsButtonWidget({Key? key, required this.onTap}) : super(key: key);
+  const SeminarsandeventsButtonWidget({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

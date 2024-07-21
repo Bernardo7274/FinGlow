@@ -19,7 +19,7 @@ class MenuTodasWidget extends StatelessWidget {
     '20% de descuento',
   ];
 
-  MenuTodasWidget({Key? key}) : super(key: key);
+  MenuTodasWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

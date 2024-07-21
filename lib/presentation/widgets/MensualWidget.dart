@@ -2,7 +2,7 @@ import 'package:FinGlow/presentation/widgets/BarChartSample1.dart';
 import 'package:flutter/material.dart';
 
 class MensualWidget extends StatelessWidget {
-  const MensualWidget({Key? key}) : super(key: key);
+  const MensualWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +66,7 @@ class MensualWidget extends StatelessWidget {
                 2.0, // Divider thickness and the space it occupies in the main axis.
           ),
           const SizedBox(height: 1),
-          BarChartSample1(),
+          const BarChartSample1(),
         ],
       ),
     );

@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 const CustomLoginWidget(isAuthenticated: true),
                 ListView(
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   children: <Widget>[
                     TextButton(
                       onPressed: () {

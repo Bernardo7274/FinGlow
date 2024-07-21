@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class FinancialAdvisorButtonWidget extends StatelessWidget {
   final VoidCallback onTap;
-  const FinancialAdvisorButtonWidget({Key? key, required this.onTap}) : super(key: key);
+  const FinancialAdvisorButtonWidget({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

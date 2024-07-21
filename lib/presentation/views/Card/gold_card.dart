@@ -82,7 +82,7 @@ class _GoldCardViewState extends State<GoldCardView> {
                 ],
               ),
               const SizedBox(height: 35),
-              LastMovementsWidget(),
+              const LastMovementsWidget(),
             ],
           ),
         ),

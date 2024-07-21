@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart'; // Asegúrate de tener este import si usas BlocProvider
 
 class SemanalWidget extends StatelessWidget {
-  const SemanalWidget({Key? key}) : super(key: key);
+  const SemanalWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +77,7 @@ class SemanalWidget extends StatelessWidget {
                   height: 2.0, // Divider thickness and the space it occupies in the main axis.
                 ),
                 const SizedBox(height: 1),
-                BarChartSample2(),
+                const BarChartSample2(),
               ],
             );
           },

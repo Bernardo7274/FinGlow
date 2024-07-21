@@ -7,8 +7,7 @@ class ConfirmTransactionView extends StatefulWidget {
   final String amount; // Nuevo parámetro para almacenar la cantidad
 
   const ConfirmTransactionView(
-      {Key? key, required this.name, required this.amount})
-      : super(key: key);
+      {super.key, required this.name, required this.amount});
 
   @override
   State<ConfirmTransactionView> createState() => _ConfirmTransactionState();
@@ -42,7 +41,7 @@ class _ConfirmTransactionState extends State<ConfirmTransactionView> {
               Row(
                 children: [
                   IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_back_ios_new_rounded,
                       color: Colors.white,
                     ),
@@ -50,7 +49,7 @@ class _ConfirmTransactionState extends State<ConfirmTransactionView> {
                       Navigator.pop(context);
                     },
                   ),
-                  Spacer(), // Espacio para empujar el ícono hacia la izquierda
+                  const Spacer(), // Espacio para empujar el ícono hacia la izquierda
                 ],
               ),
               // Contenido de la confirmación de transacción
@@ -60,14 +59,14 @@ class _ConfirmTransactionState extends State<ConfirmTransactionView> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    backgroundColor: Color(0xFFC4C4C4),
+                    backgroundColor: const Color(0xFFC4C4C4),
                     radius: 36.0,
                     child: CircleAvatar(
-                      backgroundColor: Color(0xFF939BA8),
+                      backgroundColor: const Color(0xFF939BA8),
                       radius: 32.0,
                       child: Text(
                         widget.name.substring(0, 1).toUpperCase(),
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 24.0,
@@ -75,21 +74,21 @@ class _ConfirmTransactionState extends State<ConfirmTransactionView> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     widget.name,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 18.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 220),
+                  const SizedBox(height: 220),
                   // Mostrar "Total" a la izquierda y la cantidad a la derecha
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      const Text(
                         'Total',
                         style: TextStyle(
                           color: Colors.white,
@@ -99,7 +98,7 @@ class _ConfirmTransactionState extends State<ConfirmTransactionView> {
                       ),
                       Text(
                         '\$ ${widget.amount}',
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 18.0,
                           fontWeight: FontWeight.normal,
@@ -107,10 +106,10 @@ class _ConfirmTransactionState extends State<ConfirmTransactionView> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   // Agregar el widget CardCarouselWidget
                   CardCarouselWidget(onCardTapped: (index) {}),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   // Botón de transferir
                   ElevatedButton(
                     onPressed: () {
@@ -122,13 +121,13 @@ class _ConfirmTransactionState extends State<ConfirmTransactionView> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF0A5959),
+                      backgroundColor: const Color(0xFF0A5959),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(
                           vertical: 12.0, horizontal: 100.0),
                       child: Text(
                         'Transferir',
