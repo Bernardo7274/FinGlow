@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:FinGlow/domain/models/Seminars_and_events/seminarsandevents_model.dart';
+import 'package:fin_glow/domain/models/Seminars_and_events/seminarsandevents_model.dart';
 
 class EventState extends Equatable {
   final String eventtype;

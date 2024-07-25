@@ -1,7 +1,7 @@
-import 'package:FinGlow/presentation/bloc/Dashboard/dashboard_event.dart';
+import 'package:fin_glow/presentation/bloc/Dashboard/dashboard_event.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:FinGlow/domain/usecases/Dashboard/load_dashboard_data.dart' as usecase;
-import 'package:FinGlow/presentation/bloc/Dashboard/dashboard_state.dart';
+import 'package:fin_glow/domain/usecases/Dashboard/load_dashboard_data.dart' as usecase;
+import 'package:fin_glow/presentation/bloc/Dashboard/dashboard_state.dart';
 
 class FinancialBloc extends Bloc<FinancialEvent, FinancialState> {
   final usecase.LoadDashboardData loadFinancialData;

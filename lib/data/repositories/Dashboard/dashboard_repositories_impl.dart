@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import 'package:FinGlow/domain/models/Dashboard/financial_dashboard_model.dart';
-import 'package:FinGlow/domain/repositories/Dashboard/dashboardD_repositories_impl.dart';
-import 'package:FinGlow/logger.dart';  // Importa el logger
+import 'package:fin_glow/domain/models/Dashboard/financial_dashboard_model.dart';
+import 'package:fin_glow/domain/repositories/Dashboard/dashboardD_repositories_impl.dart';
+import 'package:fin_glow/logger.dart';  // Importa el logger
 
 class DashboardRepositoryImpl implements DashboardRepository {
   @override

@@ -1,6 +1,6 @@
-import 'package:FinGlow/domain/usecases/Transactions/load_transactions_data.dart';
-import 'package:FinGlow/presentation/bloc/transaction/transaction_event.dart';
-import 'package:FinGlow/presentation/bloc/transaction/transaction_state.dart';
+import 'package:fin_glow/domain/usecases/Transactions/load_transactions_data.dart';
+import 'package:fin_glow/presentation/bloc/transaction/transaction_event.dart';
+import 'package:fin_glow/presentation/bloc/transaction/transaction_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TransferenciaBloc extends Bloc<TransferenciaEvent, TransferenciaState> {

@@ -1,6 +1,6 @@
-import 'package:FinGlow/domain/usecases/SeminarsAndEvents/load_event_data.dart' as usecase;
-import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_event.dart';
-import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_state.dart';
+import 'package:fin_glow/domain/usecases/SeminarsAndEvents/load_event_data.dart' as usecase;
+import 'package:fin_glow/presentation/bloc/SeminarsAndEvents/seminarsandevents_event.dart';
+import 'package:fin_glow/presentation/bloc/SeminarsAndEvents/seminarsandevents_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 

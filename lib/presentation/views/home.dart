@@ -1,16 +1,16 @@
-import 'package:FinGlow/data/repositories/Home/home_repository_impl.dart';
-import 'package:FinGlow/domain/usecases/Home/home_usercase.dart';
-import 'package:FinGlow/presentation/bloc/Home/home_bloc.dart';
-import 'package:FinGlow/presentation/bloc/Home/home_event.dart';
-import 'package:FinGlow/presentation/bloc/Home/home_state.dart';
+import 'package:fin_glow/data/repositories/Home/home_repository_impl.dart';
+import 'package:fin_glow/domain/usecases/Home/home_usercase.dart';
+import 'package:fin_glow/presentation/bloc/Home/home_bloc.dart';
+import 'package:fin_glow/presentation/bloc/Home/home_event.dart';
+import 'package:fin_glow/presentation/bloc/Home/home_state.dart';
 import 'package:flutter/material.dart';
-import 'package:FinGlow/presentation/widgets/CardCarouselWidget.dart';
-import 'package:FinGlow/presentation/views/Card/basic_card.dart';
-import 'package:FinGlow/presentation/views/deposit_money.dart';
-import 'package:FinGlow/presentation/views/Card/gold_card.dart';
-import 'package:FinGlow/presentation/views/interbank_clabe.dart';
-import 'package:FinGlow/presentation/views/transfer_money.dart';
-import 'package:FinGlow/presentation/widgets/LastMovementsWidget.dart';
+import 'package:fin_glow/presentation/widgets/CardCarouselWidget.dart';
+import 'package:fin_glow/presentation/views/Card/basic_card.dart';
+import 'package:fin_glow/presentation/views/deposit_money.dart';
+import 'package:fin_glow/presentation/views/Card/gold_card.dart';
+import 'package:fin_glow/presentation/views/interbank_clabe.dart';
+import 'package:fin_glow/presentation/views/transfer_money.dart';
+import 'package:fin_glow/presentation/widgets/LastMovementsWidget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeView extends StatefulWidget {

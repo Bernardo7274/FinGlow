@@ -1,12 +1,12 @@
-import 'package:FinGlow/presentation/views/FinancialAdvisor.dart';
-import 'package:FinGlow/presentation/views/SeminarsandEvents/Seminarsandevents.dart';
-import 'package:FinGlow/presentation/widgets/AccountingandBillingButtonWidget.dart';
-import 'package:FinGlow/presentation/widgets/FinancialAdvisorButtonWidget.dart';
-import 'package:FinGlow/presentation/widgets/NotificationsButtonWidget.dart';
-import 'package:FinGlow/presentation/widgets/PaymentscheduleButtonWidget.dart';
-import 'package:FinGlow/presentation/widgets/ProfileButtonWidget.dart';
-import 'package:FinGlow/presentation/widgets/SeminarsandeventsButtonWidget.dart';
-import 'package:FinGlow/presentation/widgets/ServicesButtonWidget.dart';
+import 'package:fin_glow/presentation/views/FinancialAdvisor.dart';
+import 'package:fin_glow/presentation/views/SeminarsandEvents/Seminarsandevents.dart';
+import 'package:fin_glow/presentation/widgets/AccountingandBillingButtonWidget.dart';
+import 'package:fin_glow/presentation/widgets/FinancialAdvisorButtonWidget.dart';
+import 'package:fin_glow/presentation/widgets/NotificationsButtonWidget.dart';
+import 'package:fin_glow/presentation/widgets/PaymentscheduleButtonWidget.dart';
+import 'package:fin_glow/presentation/widgets/ProfileButtonWidget.dart';
+import 'package:fin_glow/presentation/widgets/SeminarsandeventsButtonWidget.dart';
+import 'package:fin_glow/presentation/widgets/ServicesButtonWidget.dart';
 import 'package:flutter/material.dart';
 
 class MoreFeaturesView extends StatefulWidget {

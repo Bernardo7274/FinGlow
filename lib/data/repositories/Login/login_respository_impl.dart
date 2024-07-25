@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
-import 'package:FinGlow/domain/models/Login/login_model.dart';
-import 'package:FinGlow/domain/repositories/Login/login_repository.dart';
+import 'package:fin_glow/domain/models/Login/login_model.dart';
+import 'package:fin_glow/domain/repositories/Login/login_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:FinGlow/logger.dart';  // Importa el logger
+import 'package:fin_glow/logger.dart';  // Importa el logger
 
 class LoginRepositoryImpl implements LoginRepository {
   final Dio _dio = Dio();
-  final String url = 'http://apimoviles-production.up.railway.app';
+  final String url = 'https://apimoviles-production.up.railway.app';
 
   @override
   Future<void> loginUser(LoginModel login) async {

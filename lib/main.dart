@@ -1,8 +1,8 @@
-import 'package:FinGlow/presentation/views/Register/register_user.dart';
+import 'package:fin_glow/presentation/views/Register/register_user.dart';
 import 'package:flutter/material.dart';
 import 'package:local_auth/local_auth.dart';
-import 'package:FinGlow/presentation/widgets/CustomLoginWidget.dart';
-import 'package:FinGlow/presentation/widgets/WelcomeWidget.dart';
+import 'package:fin_glow/presentation/widgets/CustomLoginWidget.dart';
+import 'package:fin_glow/presentation/widgets/WelcomeWidget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -118,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         const Text(
-                          '¿Quieres usar la app de FinGlow?',
+                          '¿Quieres usar la app de fin_glow?',
                           style: TextStyle(
                             color: Colors.white,
                             fontFamily: 'Arial',

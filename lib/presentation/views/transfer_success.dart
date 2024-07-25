@@ -1,4 +1,4 @@
-import 'package:FinGlow/presentation/views/menubar.dart';
+import 'package:fin_glow/presentation/views/menubar.dart';
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
@@ -113,7 +113,7 @@ class _transferSuccessState extends State<transferSuccessView> {
                         const SizedBox(width: 10),
                         const Expanded(
                           child: Text(
-                            "\nCon disponible en FinGlow Wallet.\n\nFinGlow procesó el pago, a nombre y por cuenta de FinGlow Wallet",
+                            "\nCon disponible en fin_glow Wallet.\n\nfin_glow procesó el pago, a nombre y por cuenta de fin_glow Wallet",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 12.0,

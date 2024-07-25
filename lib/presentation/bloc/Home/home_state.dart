@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:FinGlow/domain/models/Home/home_model.dart';
+import 'package:fin_glow/domain/models/Home/home_model.dart';
 
 class HomeState extends Equatable {
   final String username;

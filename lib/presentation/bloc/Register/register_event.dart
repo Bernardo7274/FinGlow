@@ -1,4 +1,4 @@
-import 'package:FinGlow/domain/models/Register/register_model.dart';
+import 'package:fin_glow/domain/models/Register/register_model.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class RegisterEvent extends Equatable {

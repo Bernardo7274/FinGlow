@@ -1,4 +1,4 @@
-import 'package:FinGlow/presentation/views/movement_info.dart';
+import 'package:fin_glow/presentation/views/movement_info.dart';
 import 'package:flutter/material.dart';
 
 class MovementHistoryView extends StatelessWidget {

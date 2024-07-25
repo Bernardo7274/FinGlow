@@ -1,5 +1,5 @@
-import 'package:FinGlow/domain/models/Register/register_model.dart';
-import 'package:FinGlow/domain/repositories/Register/registerD_repository.dart';
+import 'package:fin_glow/domain/models/Register/register_model.dart';
+import 'package:fin_glow/domain/repositories/Register/registerD_repository.dart';
 
 class RegisterData {
   final RegisterRepository repository;

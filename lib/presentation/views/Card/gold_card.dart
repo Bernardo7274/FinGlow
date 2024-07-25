@@ -1,4 +1,4 @@
-import 'package:FinGlow/presentation/widgets/LastMovementsWidget.dart';
+import 'package:fin_glow/presentation/widgets/LastMovementsWidget.dart';
 import 'package:flutter/material.dart';
 
 class GoldCardView extends StatefulWidget {

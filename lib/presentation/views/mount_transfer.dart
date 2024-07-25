@@ -1,4 +1,4 @@
-import 'package:FinGlow/presentation/views/confirm_transaction.dart';
+import 'package:fin_glow/presentation/views/confirm_transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

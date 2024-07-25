@@ -4,12 +4,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 
 class CardCarouselWidget2 extends StatefulWidget {
   final List<String> cardImages = [
-    "assets/images/Publicidad FinGlow.png",
-    "assets/images/Publicidad FinGlow(1).png",
-    "assets/images/Publicidad FinGlow(2).png",
-    "assets/images/Publicidad FinGlow(3).png",
-    "assets/images/Publicidad FinGlow(4).png",
-    "assets/images/Publicidad FinGlow(5).png",
+    "assets/images/Publicidad fin_glow.png",
+    "assets/images/Publicidad fin_glow(1).png",
+    "assets/images/Publicidad fin_glow(2).png",
+    "assets/images/Publicidad fin_glow(3).png",
+    "assets/images/Publicidad fin_glow(4).png",
+    "assets/images/Publicidad fin_glow(5).png",
   ];
 
  CardCarouselWidget2({super.key});

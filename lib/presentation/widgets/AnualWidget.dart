@@ -1,4 +1,4 @@
-import 'package:FinGlow/presentation/widgets/BarChartSample3.dart';
+import 'package:fin_glow/presentation/widgets/BarChartSample3.dart';
 import 'package:flutter/material.dart';
 
 class AnualWidget extends StatelessWidget {

@@ -1,8 +1,8 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:FinGlow/presentation/views/Card/basic_card.dart';
-import 'package:FinGlow/presentation/views/Card/gold_card.dart';
+import 'package:fin_glow/presentation/views/Card/basic_card.dart';
+import 'package:fin_glow/presentation/views/Card/gold_card.dart';
 
 class CardCarouselWidget extends StatelessWidget {
   final List<String> cardImages = [

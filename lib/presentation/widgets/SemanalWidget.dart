@@ -1,9 +1,9 @@
-import 'package:FinGlow/data/repositories/Dashboard/dashboard_repositories_impl.dart';
-import 'package:FinGlow/domain/usecases/Dashboard/load_dashboard_data.dart';
-import 'package:FinGlow/presentation/bloc/Dashboard/dashboard_bloc.dart';
-import 'package:FinGlow/presentation/bloc/Dashboard/dashboard_event.dart';
-import 'package:FinGlow/presentation/bloc/Dashboard/dashboard_state.dart';
-import 'package:FinGlow/presentation/widgets/BarChartSample2.dart';
+import 'package:fin_glow/data/repositories/Dashboard/dashboard_repositories_impl.dart';
+import 'package:fin_glow/domain/usecases/Dashboard/load_dashboard_data.dart';
+import 'package:fin_glow/presentation/bloc/Dashboard/dashboard_bloc.dart';
+import 'package:fin_glow/presentation/bloc/Dashboard/dashboard_event.dart';
+import 'package:fin_glow/presentation/bloc/Dashboard/dashboard_state.dart';
+import 'package:fin_glow/presentation/widgets/BarChartSample2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart'; // Asegúrate de tener este import si usas BlocProvider
 

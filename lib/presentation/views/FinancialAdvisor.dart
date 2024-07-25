@@ -1,10 +1,10 @@
 // ignore_for_file: file_names, non_constant_identifier_names, avoid_print
-import 'package:FinGlow/data/repositories/ChatSupport/chat_support_repositories_impl.dart';
-import 'package:FinGlow/domain/usecases/ChatSupport/chatsupport_usercase.dart';
-import 'package:FinGlow/presentation/bloc/Chat/chat_support_bloc.dart';
-import 'package:FinGlow/presentation/bloc/Chat/chat_support_event.dart';
-import 'package:FinGlow/presentation/bloc/Chat/chat_support_state.dart';
-import 'package:FinGlow/presentation/views/FinancialAdvisor2.dart';
+import 'package:fin_glow/data/repositories/ChatSupport/chat_support_repositories_impl.dart';
+import 'package:fin_glow/domain/usecases/ChatSupport/chatsupport_usercase.dart';
+import 'package:fin_glow/presentation/bloc/Chat/chat_support_bloc.dart';
+import 'package:fin_glow/presentation/bloc/Chat/chat_support_event.dart';
+import 'package:fin_glow/presentation/bloc/Chat/chat_support_state.dart';
+import 'package:fin_glow/presentation/views/FinancialAdvisor2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart'; // Add this import
 

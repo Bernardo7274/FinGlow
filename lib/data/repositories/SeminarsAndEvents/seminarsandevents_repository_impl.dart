@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import 'package:FinGlow/domain/models/Seminars_and_events/seminarsandevents_model.dart';
-import 'package:FinGlow/domain/repositories/SeminarsAndEvents/seminarsandeventsD_repository.dart';
-import 'package:FinGlow/logger.dart';  // Importa el logger
+import 'package:fin_glow/domain/models/Seminars_and_events/seminarsandevents_model.dart';
+import 'package:fin_glow/domain/repositories/SeminarsAndEvents/seminarsandeventsD_repository.dart';
+import 'package:fin_glow/logger.dart';  // Importa el logger
 
 class SeminarsandeventsRepositoryImpl implements SeminarsandeventsRepositoy {
   @override

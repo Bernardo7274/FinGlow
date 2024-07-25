@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:FinGlow/domain/repositories/Register/registerD_repository.dart';
-import 'package:FinGlow/domain/models/Register/register_model.dart';
-import 'package:FinGlow/logger.dart';  // Importa el logger
+import 'package:fin_glow/domain/repositories/Register/registerD_repository.dart';
+import 'package:fin_glow/domain/models/Register/register_model.dart';
+import 'package:fin_glow/logger.dart';  // Importa el logger
 
 class RegisterRepositoryImpl implements RegisterRepository {
   final Dio _dio = Dio();
-  final String url = 'http://apimoviles-production.up.railway.app';
+  final String url = 'https://apimoviles-production.up.railway.app';
 
   @override
   Future<dynamic> submitUser(RegisterModel register) async {

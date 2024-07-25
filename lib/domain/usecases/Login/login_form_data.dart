@@ -1,5 +1,5 @@
-import 'package:FinGlow/domain/models/Login/login_model.dart';
-import 'package:FinGlow/domain/repositories/Login/login_repository.dart';
+import 'package:fin_glow/domain/models/Login/login_model.dart';
+import 'package:fin_glow/domain/repositories/Login/login_repository.dart';
 
 class LoginData {
   final LoginRepository repository;

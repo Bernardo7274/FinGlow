@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:FinGlow/domain/models/Dashboard/financial_dashboard_model.dart';
+import 'package:fin_glow/domain/models/Dashboard/financial_dashboard_model.dart';
 
 class FinancialState extends Equatable {
   final String reportscategory;

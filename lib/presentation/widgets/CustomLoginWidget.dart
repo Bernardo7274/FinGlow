@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:intl/intl.dart';
-import 'package:FinGlow/data/repositories/Login/login_respository_impl.dart';
-import 'package:FinGlow/domain/usecases/Login/login_form_data.dart';
-import 'package:FinGlow/presentation/bloc/Login/login_event.dart';
-import 'package:FinGlow/presentation/bloc/Login/login_state.dart';
+import 'package:fin_glow/data/repositories/Login/login_respository_impl.dart';
+import 'package:fin_glow/domain/usecases/Login/login_form_data.dart';
+import 'package:fin_glow/presentation/bloc/Login/login_event.dart';
+import 'package:fin_glow/presentation/bloc/Login/login_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:FinGlow/presentation/Bloc/Login/login_bloc.dart';
-import 'package:FinGlow/domain/models/Login/login_model.dart';
+import 'package:fin_glow/presentation/Bloc/Login/login_bloc.dart';
+import 'package:fin_glow/domain/models/Login/login_model.dart';
 
 class CustomLoginWidget extends StatefulWidget {
   final bool isAuthenticated;

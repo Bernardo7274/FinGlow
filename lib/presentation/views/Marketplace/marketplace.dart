@@ -1,7 +1,7 @@
-import 'package:FinGlow/presentation/widgets/CardCarouselWidget1.dart';
-import 'package:FinGlow/presentation/widgets/MenuDescuentos.dart';
-import 'package:FinGlow/presentation/widgets/MenuMeses.dart';
-import 'package:FinGlow/presentation/widgets/MenuTodas.dart';
+import 'package:fin_glow/presentation/widgets/CardCarouselWidget1.dart';
+import 'package:fin_glow/presentation/widgets/MenuDescuentos.dart';
+import 'package:fin_glow/presentation/widgets/MenuMeses.dart';
+import 'package:fin_glow/presentation/widgets/MenuTodas.dart';
 import 'package:flutter/material.dart';
 
 class MarketplaceView extends StatefulWidget {

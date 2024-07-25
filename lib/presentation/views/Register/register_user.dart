@@ -1,12 +1,12 @@
-import 'package:FinGlow/presentation/widgets/WelcomeWidget2.dart';
+import 'package:fin_glow/presentation/widgets/WelcomeWidget2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:FinGlow/domain/models/Register/register_model.dart';
-import 'package:FinGlow/presentation/bloc/Register/register_bloc.dart';
-import 'package:FinGlow/presentation/bloc/Register/register_event.dart';
-import 'package:FinGlow/presentation/bloc/Register/register_state.dart';
-import 'package:FinGlow/domain/usecases/Register/load_register_data.dart';
-import 'package:FinGlow/data/repositories/Register/register_repository_impl.dart';
+import 'package:fin_glow/domain/models/Register/register_model.dart';
+import 'package:fin_glow/presentation/bloc/Register/register_bloc.dart';
+import 'package:fin_glow/presentation/bloc/Register/register_event.dart';
+import 'package:fin_glow/presentation/bloc/Register/register_state.dart';
+import 'package:fin_glow/domain/usecases/Register/load_register_data.dart';
+import 'package:fin_glow/data/repositories/Register/register_repository_impl.dart';
 
 class UserRegister extends StatefulWidget {
   const UserRegister({super.key});

@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:FinGlow/domain/models/Card/card_model.dart';
+import 'package:fin_glow/domain/models/Card/card_model.dart';
 
 class CardState extends Equatable {
   final int? cardnumber;

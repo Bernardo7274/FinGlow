@@ -1,5 +1,5 @@
-import 'package:FinGlow/presentation/views/transfer_success.dart';
-import 'package:FinGlow/presentation/widgets/CardCarouselWidget.dart';
+import 'package:fin_glow/presentation/views/transfer_success.dart';
+import 'package:fin_glow/presentation/widgets/CardCarouselWidget.dart';
 import 'package:flutter/material.dart';
 
 class ConfirmTransactionView extends StatefulWidget {

@@ -1,5 +1,5 @@
-import 'package:FinGlow/domain/models/Home/home_model.dart';
-import 'package:FinGlow/domain/repositories/Home/homeD_repository.dart';
+import 'package:fin_glow/domain/models/Home/home_model.dart';
+import 'package:fin_glow/domain/repositories/Home/homeD_repository.dart';
 
 class LoadEventData{
   final HomeRepository repository;

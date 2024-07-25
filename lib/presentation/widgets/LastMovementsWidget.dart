@@ -1,12 +1,12 @@
-import 'package:FinGlow/data/repositories/Card/card_repository_impl.dart';
-import 'package:FinGlow/domain/usecases/Card/card_usecase.dart';
-import 'package:FinGlow/presentation/bloc/Card/card_bloc.dart';
-import 'package:FinGlow/presentation/bloc/Card/card_event.dart';
-import 'package:FinGlow/presentation/bloc/Card/card_state.dart';
+import 'package:fin_glow/data/repositories/Card/card_repository_impl.dart';
+import 'package:fin_glow/domain/usecases/Card/card_usecase.dart';
+import 'package:fin_glow/presentation/bloc/Card/card_bloc.dart';
+import 'package:fin_glow/presentation/bloc/Card/card_event.dart';
+import 'package:fin_glow/presentation/bloc/Card/card_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart'; // Importa Flutter Bloc para usar BlocProvider
-import 'package:FinGlow/presentation/views/movement_history.dart';
-import 'package:FinGlow/presentation/views/movement_info.dart';
+import 'package:fin_glow/presentation/views/movement_history.dart';
+import 'package:fin_glow/presentation/views/movement_info.dart';
 
 class LastMovementsWidget extends StatelessWidget {
   const LastMovementsWidget({super.key});
@@ -71,7 +71,7 @@ class LastMovementsWidget extends StatelessWidget {
                       title: state.movementtype,
                       date: "${state.movementdate}",
                       amount: state.movementamount,
-                      unknownIconText: "Movimiento FinGlow",
+                      unknownIconText: "Movimiento fin_glow",
                       shareIconText: "14 de febrero",
                       withdrawalAccount: "adam.rom72@gmail.com",
                       movementType: "Operation",

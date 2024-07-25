@@ -1,12 +1,12 @@
 // ignore_for_file: file_names, non_constant_identifier_names, avoid_print
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:FinGlow/data/repositories/SeminarsAndEvents/seminarsandevents_repository_impl.dart';
-import 'package:FinGlow/domain/usecases/SeminarsAndEvents/load_event_data.dart';
-import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_bloc.dart';
-import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_event.dart';
-import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_state.dart';
-import 'package:FinGlow/presentation/views/SeminarsandEvents/SeminarSeminarView.dart';
+import 'package:fin_glow/data/repositories/SeminarsAndEvents/seminarsandevents_repository_impl.dart';
+import 'package:fin_glow/domain/usecases/SeminarsAndEvents/load_event_data.dart';
+import 'package:fin_glow/presentation/bloc/SeminarsAndEvents/seminarsandevents_bloc.dart';
+import 'package:fin_glow/presentation/bloc/SeminarsAndEvents/seminarsandevents_event.dart';
+import 'package:fin_glow/presentation/bloc/SeminarsAndEvents/seminarsandevents_state.dart';
+import 'package:fin_glow/presentation/views/SeminarsandEvents/SeminarSeminarView.dart';
 
 class SeminarsandeventsView extends StatefulWidget {
   const SeminarsandeventsView({super.key});
@@ -77,7 +77,7 @@ class _SeminarsandeventsViewState extends State<SeminarsandeventsView> {
                   return ListView(
                     children: <Widget>[
                       const Text(
-                        '¡Explora un mundo de conocimiento y oportunidades con FinGlow!',
+                        '¡Explora un mundo de conocimiento y oportunidades con fin_glow!',
                         style: TextStyle(
                           fontFamily: 'Arial',
                           fontWeight: FontWeight.w200,

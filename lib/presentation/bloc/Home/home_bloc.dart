@@ -1,9 +1,9 @@
 // ignore_for_file: unnecessary_null_comparison
 
-import 'package:FinGlow/domain/usecases/Home/home_usercase.dart' as usecase;
-import 'package:FinGlow/presentation/bloc/Home/home_event.dart';
+import 'package:fin_glow/domain/usecases/Home/home_usercase.dart' as usecase;
+import 'package:fin_glow/presentation/bloc/Home/home_event.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:FinGlow/presentation/bloc/Home/home_state.dart';
+import 'package:fin_glow/presentation/bloc/Home/home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final usecase.LoadEventData loadHomeData;

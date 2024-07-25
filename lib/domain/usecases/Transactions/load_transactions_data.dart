@@ -1,7 +1,7 @@
 // ignore_for_file: unnecessary_null_comparison
 
-import 'package:FinGlow/domain/models/Transaccion/transactions_model.dart';
-import 'package:FinGlow/domain/repositories/Transactions/transactions_d_repository.dart';
+import 'package:fin_glow/domain/models/Transaccion/transactions_model.dart';
+import 'package:fin_glow/domain/repositories/Transactions/transactions_d_repository.dart';
 
 class LoadTransferenciaBancaria {
   final TransactionRepository repository;

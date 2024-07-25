@@ -1,6 +1,6 @@
-import 'package:FinGlow/presentation/views/transfer_accountFG.dart';
-import 'package:FinGlow/presentation/widgets/name_list.dart';
-import 'package:FinGlow/presentation/widgets/transfer_option_box.dart';
+import 'package:fin_glow/presentation/views/transfer_accountFG.dart';
+import 'package:fin_glow/presentation/widgets/name_list.dart';
+import 'package:fin_glow/presentation/widgets/transfer_option_box.dart';
 import 'package:flutter/material.dart';
 
 class TransferMoneyView extends StatefulWidget {
@@ -67,7 +67,7 @@ class _TransferMoneyViewState extends State<TransferMoneyView> {
               Center(
                 child: Container(
                   child: TransferOptionBox(
-                    title1: 'A cuenta FinGlow',
+                    title1: 'A cuenta fin_glow',
                     subtitle1: 'Con e-mail celular o contacto',
                     title2: 'A cuenta bancaria o digital',
                     subtitle2: 'Con CLABE o tarjeta',

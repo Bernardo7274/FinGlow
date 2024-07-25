@@ -1,10 +1,10 @@
 // ignore_for_file: avoid_print, unnecessary_string_interpolations
 
-import 'package:FinGlow/data/repositories/SeminarsAndEvents/seminarsandevents_repository_impl.dart';
-import 'package:FinGlow/domain/usecases/SeminarsAndEvents/load_event_data.dart';
-import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_bloc.dart';
-import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_event.dart';
-import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_state.dart';
+import 'package:fin_glow/data/repositories/SeminarsAndEvents/seminarsandevents_repository_impl.dart';
+import 'package:fin_glow/domain/usecases/SeminarsAndEvents/load_event_data.dart';
+import 'package:fin_glow/presentation/bloc/SeminarsAndEvents/seminarsandevents_bloc.dart';
+import 'package:fin_glow/presentation/bloc/SeminarsAndEvents/seminarsandevents_event.dart';
+import 'package:fin_glow/presentation/bloc/SeminarsAndEvents/seminarsandevents_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

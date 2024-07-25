@@ -1,6 +1,6 @@
-import 'package:FinGlow/domain/usecases/Card/card_usecase.dart' as usecase;
-import 'package:FinGlow/presentation/bloc/Card/card_event.dart';
-import 'package:FinGlow/presentation/bloc/Card/card_state.dart';
+import 'package:fin_glow/domain/usecases/Card/card_usecase.dart' as usecase;
+import 'package:fin_glow/presentation/bloc/Card/card_event.dart';
+import 'package:fin_glow/presentation/bloc/Card/card_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CardBloc extends Bloc<CardEvent, CardState> {

@@ -1,4 +1,4 @@
-import 'package:FinGlow/domain/models/Transaccion/transactions_model.dart';
+import 'package:fin_glow/domain/models/Transaccion/transactions_model.dart';
 import 'package:equatable/equatable.dart';
 
 class TransferenciaState extends Equatable {

@@ -9,7 +9,7 @@ class WelcomeWidget extends StatelessWidget {
     return Column(
       children: <Widget>[
         const Text(
-          '¡Bienvenido a FinGlow!',
+          '¡Bienvenido a fin_glow!',
           style: TextStyle(
             fontFamily: 'Arial',
             fontSize: 24,

@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import 'package:FinGlow/domain/models/ChatSupport/chat_support_model.dart';
-import 'package:FinGlow/domain/repositories/ChatSupport/chat_supportD_repositories_impl.dart';
-import 'package:FinGlow/logger.dart';  // Importa el logger
+import 'package:fin_glow/domain/models/ChatSupport/chat_support_model.dart';
+import 'package:fin_glow/domain/repositories/ChatSupport/chat_supportD_repositories_impl.dart';
+import 'package:fin_glow/logger.dart';  // Importa el logger
 
 class ChatSupportRepositoryImpl implements ChatSupportRepository {
   @override

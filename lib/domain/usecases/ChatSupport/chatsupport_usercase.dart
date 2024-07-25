@@ -1,5 +1,5 @@
-import 'package:FinGlow/domain/models/ChatSupport/chat_support_model.dart';
-import 'package:FinGlow/domain/repositories/ChatSupport/chat_supportD_repositories_impl.dart';
+import 'package:fin_glow/domain/models/ChatSupport/chat_support_model.dart';
+import 'package:fin_glow/domain/repositories/ChatSupport/chat_supportD_repositories_impl.dart';
 
 class LoadEventData {
   final ChatSupportRepository repository;

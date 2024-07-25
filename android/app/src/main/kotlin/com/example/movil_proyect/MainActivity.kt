@@ -1,4 +1,4 @@
-package com.example.FinGlow
+package com.example.fin_glow
 
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.android.FlutterFragmentActivity

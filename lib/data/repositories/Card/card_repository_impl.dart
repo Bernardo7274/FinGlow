@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import 'package:FinGlow/domain/models/Card/card_model.dart';
-import 'package:FinGlow/domain/repositories/Card/cardD_repository.dart';
-import 'package:FinGlow/logger.dart';  // Asegúrate de importar el logger
+import 'package:fin_glow/domain/models/Card/card_model.dart';
+import 'package:fin_glow/domain/repositories/Card/cardD_repository.dart';
+import 'package:fin_glow/logger.dart';  // Asegúrate de importar el logger
 
 class CardRepositoryImpl implements CardRepository {
   @override

@@ -1,4 +1,4 @@
-import 'package:FinGlow/domain/usecases/ChatSupport/chatsupport_usercase.dart' as usecase;
+import 'package:fin_glow/domain/usecases/ChatSupport/chatsupport_usercase.dart' as usecase;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'chat_support_event.dart';
 import 'chat_support_state.dart';
