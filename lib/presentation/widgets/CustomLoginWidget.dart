@@ -1,15 +1,9 @@
 // ignore_for_file: file_names
+import 'package:FinGlow/presentation/views/menubar.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:intl/intl.dart';
-import 'package:FinGlow/data/repositories/Login/login_respository_impl.dart';
-import 'package:FinGlow/domain/usecases/Login/login_form_data.dart';
-import 'package:FinGlow/presentation/bloc/Login/login_event.dart';
-import 'package:FinGlow/presentation/bloc/Login/login_state.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:FinGlow/presentation/Bloc/Login/login_bloc.dart';
-import 'package:FinGlow/domain/models/Login/login_model.dart';
 
 class CustomLoginWidget extends StatefulWidget {
   final bool isAuthenticated;
@@ -27,6 +21,7 @@ class _CustomLoginWidgetState extends State<CustomLoginWidget> {
   final LocalAuthentication auth = LocalAuthentication();
   bool _passwordVisible = false;
   final String currentDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
+  //final String _expectedEmail = "correo@ejemplo.com";
   final String _expectedPassword = "123";
 
   @override
@@ -38,35 +33,8 @@ class _CustomLoginWidgetState extends State<CustomLoginWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final loginRepository = LoginRepositoryImpl();
-    final loginData = LoginData(loginRepository);
-
-    return BlocProvider(
-      create: (context) => LoginBloc(loginData, context),
-      child: BlocBuilder<LoginBloc, LoginState>(
-        builder: (context, state) {
-          if (state is LoginInitial || state is LoginError) {
-            return buildForm(context, state is LoginError ? state.message : null);
-          } else if (state is LoginLoading) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (state is LoginSuccess) {
-            return const Center(child: Text('Login Success'));
-          } else {
-            return Container();
-          }
-        },
-      ),
-    );
-  }
-
-  Widget buildForm(BuildContext context, String? errorMessage) {
     return Column(
       children: <Widget>[
-        if (errorMessage != null)
-          Text(
-            errorMessage,
-            style: const TextStyle(color: Colors.red),
-          ),
         TextFormField(
           controller: _emailController,
           keyboardType: TextInputType.emailAddress,
@@ -121,6 +89,7 @@ class _CustomLoginWidgetState extends State<CustomLoginWidget> {
           width: double.infinity,
           child: ElevatedButton(
             onPressed: () {
+              // Verificación si los campos están vacíos
               if (_emailController.text.isEmpty ||
                   _passwordController.text.isEmpty) {
                 ScaffoldMessenger.of(context).showSnackBar(
@@ -129,9 +98,10 @@ class _CustomLoginWidgetState extends State<CustomLoginWidget> {
                     backgroundColor: Colors.red,
                   ),
                 );
-                return;
+                return; // Salir si los campos están vacíos
               }
 
+              // Validación del correo electrónico
               if (!EmailValidator.validate(_emailController.text)) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
@@ -140,10 +110,12 @@ class _CustomLoginWidgetState extends State<CustomLoginWidget> {
                     backgroundColor: Colors.red,
                   ),
                 );
-                return;
+                return; // Salir si el correo no es válido
               }
 
+              // Verificación de correo electrónico y contraseña esperados
               if (_passwordController.text == _expectedPassword) {
+                // Si las credenciales son correctas, proceder con la lógica de autenticación
                 if (!widget.isAuthenticated) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
@@ -152,14 +124,13 @@ class _CustomLoginWidgetState extends State<CustomLoginWidget> {
                     ),
                   );
                 } else {
-                  final user = LoginModel(
-                    email: _emailController.text,
-                    password: _passwordController.text,
-                  );
-                  BlocProvider.of<LoginBloc>(context)
-                      .add(SubmitLoginEvent(user));
+                  // Navegar a la vista de inicio si la autenticación es exitosa
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => const MenubarView(),
+                  ));
                 }
               } else {
+                // Si las credenciales no coinciden, mostrar un mensaje de error
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                     content: Text('Contraseña incorrecta.'),

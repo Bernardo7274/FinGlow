@@ -7,7 +7,7 @@ class TransferenciaBloc extends Bloc<TransferenciaEvent, TransferenciaState> {
   final LoadTransferenciaBancaria loadTransferenciaBancaria;
 
   TransferenciaBloc(this.loadTransferenciaBancaria) : super(const TransferenciaState()) {
-    on<LoadTransferencia>((event, emit) async {
+    on<LoadTransferencias>((event, emit) async {
       try {
         final transferencia = await loadTransferenciaBancaria();
         emit(TransferenciaState.fromModel(transferencia));

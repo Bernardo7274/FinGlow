@@ -1,64 +1,66 @@
-import 'package:FinGlow/domain/usecases/SeminarsAndEvents/load_event_data.dart' as usecase;
-import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_event.dart';
-import 'package:FinGlow/presentation/bloc/SeminarsAndEvents/seminarsandevents_state.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+// ignore_for_file: override_on_non_overriding_member, depend_on_referenced_packages
 
+import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:FinGlow/domain/models/Seminars_and_events/seminarsandevents_model.dart';
+import 'package:FinGlow/domain/repositories/SeminarsAndEvents/seminarsandeventsD_repository.dart';
+import 'package:FinGlow/domain/usecases/SeminarsAndEvents/load_event_data.dart';
 
+// Event
+abstract class SeminarsAndEventsEvent extends Equatable {
+  @override
+  List<Object> get props => [];
+}
 
-class EventBloc extends Bloc<EventEvent, EventState> {
-  final usecase.LoadEventData loadEventData;
+class LoadEventDataEvent extends SeminarsAndEventsEvent {}
 
-  EventBloc(this.loadEventData) : super(const EventState()) {
-    on<LoadEventDataEvent>((event, emit) async {
+// State
+abstract class SeminarsAndEventsState extends Equatable {
+  @override
+  List<Object> get props => [];
+}
+
+class SeminarsAndEventsInitial extends SeminarsAndEventsState {}
+
+class SeminarsAndEventsLoading extends SeminarsAndEventsState {}
+
+class SeminarsAndEventsLoaded extends SeminarsAndEventsState {
+  final EventModel eventData;
+
+  SeminarsAndEventsLoaded(this.eventData);
+
+  @override
+  List<Object> get props => [eventData];
+}
+
+class SeminarsAndEventsError extends SeminarsAndEventsState {
+  final String message;
+
+  SeminarsAndEventsError(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
+
+// BLoC
+class SeminarsAndEventsBloc
+    extends Bloc<SeminarsAndEventsEvent, SeminarsAndEventsState> {
+  final SeminarsandeventsRepositoy repository;
+
+  SeminarsAndEventsBloc(this.repository) : super(SeminarsAndEventsInitial());
+
+  @override
+  Stream<SeminarsAndEventsState> mapEventToState(
+      SeminarsAndEventsEvent event) async* {
+    if (event is LoadEventDataEvent) {
+      yield SeminarsAndEventsLoading();
       try {
-        final eventData = await loadEventData();
-        emit(EventState.fromModel(eventData));
+        final usecase = LoadEventData(repository);
+        final eventData = await usecase.call();
+        yield SeminarsAndEventsLoaded(eventData);
       } catch (e) {
-        emit(state.copyWith(isValid: false));
-        // Handle the exception if needed
+        yield SeminarsAndEventsError(e.toString());
       }
-    });
-
-    on<EventTypeChanged>((event, emit) {
-      emit(state.copyWith(eventtype: event.eventtype, isValid: _validateForm(state.copyWith(eventtype: event.eventtype))));
-    });
-    on<CategoryNameChanged>((event, emit) {
-      emit(state.copyWith(categoryname: event.categoryname, isValid: _validateForm(state.copyWith(categoryname: event.categoryname))));
-    });
-    on<EventNameChanged>((event, emit) {
-      emit(state.copyWith(eventname: event.eventname, isValid: _validateForm(state.copyWith(eventname: event.eventname))));
-    });
-    on<WestNameChanged>((event, emit) {
-      emit(state.copyWith(westname: event.westname, isValid: _validateForm(state.copyWith(westname: event.westname))));
-    });
-    on<OccupationChanged>((event, emit) {
-      emit(state.copyWith(occupation: event.occupation, isValid: _validateForm(state.copyWith(occupation: event.occupation))));
-    });
-    on<PlatformChanged>((event, emit) {
-      emit(state.copyWith(platform: event.platform, isValid: _validateForm(state.copyWith(platform: event.platform))));
-    });
-    on<EventDateChanged>((event, emit) {
-      emit(state.copyWith(eventdate: event.eventdate, isValid: _validateForm(state.copyWith(eventdate: event.eventdate))));
-    });
-    on<EventDayChanged>((event, emit) {
-      emit(state.copyWith(eventday: event.eventday, isValid: _validateForm(state.copyWith(eventday: event.eventday))));
-    });
-    on<EventSubmitted>((event, emit) {
-      if (state.isValid) {
-        // Handle event submission logic
-      }
-    });
-  }
-
-  bool _validateForm(EventState state) {
-    return state.eventtype.isNotEmpty &&
-        state.categoryname.isNotEmpty &&
-        state.eventname.isNotEmpty &&
-        state.westname.isNotEmpty &&
-        state.occupation.isNotEmpty &&
-        state.platform.isNotEmpty &&
-        state.eventdate != null &&
-        state.eventdate!.isAfter(DateTime.now()) &&
-        state.eventday.isNotEmpty;
+    }
   }
 }

@@ -1,7 +1,7 @@
-import 'package:FinGlow/presentation/views/home.dart';
 import 'package:flutter/material.dart';
-import 'package:FinGlow/presentation/views/Dashboard/dashboard.dart';
-import 'package:FinGlow/presentation/views/Marketplace/marketplace.dart';
+import 'package:FinGlow/presentation/views/dashboard.dart';
+import 'package:FinGlow/presentation/views/home.dart';
+import 'package:FinGlow/presentation/views/marketplace.dart';
 import 'package:FinGlow/presentation/views/morefeatures.dart';
 
 class MenubarView extends StatefulWidget {

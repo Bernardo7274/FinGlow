@@ -1,8 +1,0 @@
-{
-    "cardnumber": 1234567891234567,
-    "duedate": "23/12/2024",
-    "cvv": 111,
-    "movementtype": "Demo",
-    "movementamount": 2350.00,
-    "movementdate" : "23/12/2024"
-}

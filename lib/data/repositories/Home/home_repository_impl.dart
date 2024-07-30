@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 class HomeRepositoryImpl implements HomeRepository{
   @override
   Future<HomeModel> loadEventData() async{
-    final response = await rootBundle.loadString('json_data/home_data.json');
+    final response = await rootBundle.loadString('assets/json_data/home_data.json');
     final data = json.decode(response);
     print(data);
     return HomeModel.fromJson(data);

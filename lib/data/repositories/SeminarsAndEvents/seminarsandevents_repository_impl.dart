@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 class SeminarsandeventsRepositoryImpl implements SeminarsandeventsRepositoy{
   @override
   Future<EventModel> loadEventData() async{
-    final response = await rootBundle.loadString('json_data/seminarsandevents_data.json');
+    final response = await rootBundle.loadString('assets/json_data/seminarsandevents_data.json');
     final data = json.decode(response);
     print(data);
     return EventModel.fromJson(data);

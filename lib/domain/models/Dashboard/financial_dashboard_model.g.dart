@@ -9,8 +9,8 @@ part of 'financial_dashboard_model.dart';
 DashboardModel _$DashboardModelFromJson(Map<String, dynamic> json) =>
     DashboardModel(
       reportscategory: json['reportscategory'] as String,
-      incomeamount: json['incomeamount'] as String,
-      amountexpenses: json['amountexpenses'] as String,
+      incomeamount: (json['incomeamount'] as num).toDouble(),
+      amountexpenses: (json['amountexpenses'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$DashboardModelToJson(DashboardModel instance) =>

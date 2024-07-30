@@ -1,5 +1,4 @@
-import 'package:FinGlow/presentation/views/FinancialAdvisor.dart';
-import 'package:FinGlow/presentation/views/SeminarsandEvents/Seminarsandevents.dart';
+import 'package:FinGlow/presentation/views/Seminarsandevents.dart';
 import 'package:FinGlow/presentation/widgets/AccountingandBillingButtonWidget.dart';
 import 'package:FinGlow/presentation/widgets/FinancialAdvisorButtonWidget.dart';
 import 'package:FinGlow/presentation/widgets/NotificationsButtonWidget.dart';
@@ -29,7 +28,7 @@ class _MoreFeaturesViewState extends State<MoreFeaturesView> {
 
   void _handleFinancialAdvisorTap() {
     // ignore: avoid_print
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const FinancialAdvisor()));
+    print('Financial Advisor tapped!');
   }
 
   void _handleServicesTap() {

@@ -122,7 +122,7 @@ class _ConfirmTransactionState extends State<ConfirmTransactionView> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF0A5959),
+                      primary: Color(0xFF0A5959),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
                       ),
